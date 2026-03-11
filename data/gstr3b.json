@@ -1,0 +1,82 @@
+[
+  {
+    "gstin": "29AAAAA1111A1Z5",
+    "tax_paid": 58654
+  },
+  {
+    "gstin": "27BBBBB2222B2Z6",
+    "tax_paid": 22842
+  },
+  {
+    "gstin": "07CCCCC3333C3Z7",
+    "tax_paid": 65592
+  },
+  {
+    "gstin": "33DDDDD4444D4Z8",
+    "tax_paid": 61776
+  },
+  {
+    "gstin": "36EEEEE5555E5Z9",
+    "tax_paid": 726172
+  },
+  {
+    "gstin": "32FFFFF6666F6Z1",
+    "tax_paid": 400036
+  },
+  {
+    "gstin": "24GGGGG7777G7Z2",
+    "tax_paid": 162618
+  },
+  {
+    "gstin": "09HHHHH8888H8Z3",
+    "tax_paid": 269375
+  },
+  {
+    "gstin": "03IIIII9999I9Z4",
+    "tax_paid": 192151
+  },
+  {
+    "gstin": "06JJJJJ1010J1Z6",
+    "tax_paid": 247941
+  },
+  {
+    "gstin": "29KKKKK2020K2Z7",
+    "tax_paid": 217888
+  },
+  {
+    "gstin": "27LLLLL3030L3Z8",
+    "tax_paid": 268240
+  },
+  {
+    "gstin": "33MMMMM4040M4Z9",
+    "tax_paid": 141141
+  },
+  {
+    "gstin": "36NNNNN5050N5Z1",
+    "tax_paid": 111198
+  },
+  {
+    "gstin": "07OOOOO6060O6Z2",
+    "tax_paid": 38772
+  },
+  {
+    "gstin": "32PPPPP7070P7Z3",
+    "tax_paid": 96781
+  },
+  {
+    "gstin": "24QQQQQ8080Q8Z4",
+    "tax_paid": 103561
+  },
+  {
+    "gstin": "09RRRRR9090R9Z5",
+    "tax_paid": 45336
+  },
+  {
+    "gstin": "03SSSSS1122S1Z7",
+    "tax_paid": 36768
+  },
+  {
+    "gstin": "06TTTTT2233T2Z8",
+    "tax_paid": 93257
+  }
+]

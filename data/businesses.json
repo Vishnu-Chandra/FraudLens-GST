@@ -1,0 +1,102 @@
+[
+  {
+    "gstin": "29AAAAA1111A1Z5",
+    "name": "Alpha Traders",
+    "state": "Karnataka"
+  },
+  {
+    "gstin": "27BBBBB2222B2Z6",
+    "name": "Beta Distributors",
+    "state": "Maharashtra"
+  },
+  {
+    "gstin": "07CCCCC3333C3Z7",
+    "name": "Gamma Suppliers",
+    "state": "Delhi"
+  },
+  {
+    "gstin": "33DDDDD4444D4Z8",
+    "name": "Delta Retail",
+    "state": "Tamil Nadu"
+  },
+  {
+    "gstin": "36EEEEE5555E5Z9",
+    "name": "Urban Mart",
+    "state": "Telangana"
+  },
+  {
+    "gstin": "32FFFFF6666F6Z1",
+    "name": "Capital Supply",
+    "state": "Kerala"
+  },
+  {
+    "gstin": "24GGGGG7777G7Z2",
+    "name": "Gujarat Exports",
+    "state": "Gujarat"
+  },
+  {
+    "gstin": "09HHHHH8888H8Z3",
+    "name": "UP Trade House",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "gstin": "03IIIII9999I9Z4",
+    "name": "Punjab Agro",
+    "state": "Punjab"
+  },
+  {
+    "gstin": "06JJJJJ1010J1Z6",
+    "name": "Haryana Industrials",
+    "state": "Haryana"
+  },
+  {
+    "gstin": "29KKKKK2020K2Z7",
+    "name": "Bangalore Tech Corp",
+    "state": "Karnataka"
+  },
+  {
+    "gstin": "27LLLLL3030L3Z8",
+    "name": "Mumbai Wholesale",
+    "state": "Maharashtra"
+  },
+  {
+    "gstin": "33MMMMM4040M4Z9",
+    "name": "Chennai Logistics",
+    "state": "Tamil Nadu"
+  },
+  {
+    "gstin": "36NNNNN5050N5Z1",
+    "name": "Hyderabad Pharma",
+    "state": "Telangana"
+  },
+  {
+    "gstin": "07OOOOO6060O6Z2",
+    "name": "Delhi Distribution",
+    "state": "Delhi"
+  },
+  {
+    "gstin": "32PPPPP7070P7Z3",
+    "name": "Kerala Spices",
+    "state": "Kerala"
+  },
+  {
+    "gstin": "24QQQQQ8080Q8Z4",
+    "name": "Surat Textiles",
+    "state": "Gujarat"
+  },
+  {
+    "gstin": "09RRRRR9090R9Z5",
+    "name": "Lucknow Traders",
+    "state": "Uttar Pradesh"
+  },
+  {
+    "gstin": "03SSSSS1122S1Z7",
+    "name": "Amritsar Goods",
+    "state": "Punjab"
+  },
+  {
+    "gstin": "06TTTTT2233T2Z8",
+    "name": "Gurgaon Ventures",
+    "state": "Haryana"
+  }
+]
