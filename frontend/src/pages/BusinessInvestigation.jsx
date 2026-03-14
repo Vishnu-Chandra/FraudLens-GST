@@ -306,12 +306,20 @@ export default function BusinessInvestigation() {
                         ))}
                       </td>
                       <td className="px-6 py-4">
-                        <button
-                          className="px-3 py-2 rounded-xl bg-[#6366F1] text-white text-sm font-medium hover:bg-indigo-600 transition-colors shadow-sm"
-                          onClick={(e) => { e.stopPropagation(); navigate(`/business/${encodeURIComponent(b.gstin)}`); }}
-                        >
-                          Investigate
-                        </button>
+                        <div className="flex items-center gap-2">
+                          <button
+                            className="px-3 py-2 rounded-xl bg-[#6366F1] text-white text-sm font-medium hover:bg-indigo-600 transition-colors shadow-sm"
+                            onClick={(e) => { e.stopPropagation(); navigate(`/business/${encodeURIComponent(b.gstin)}`); }}
+                          >
+                            Investigate
+                          </button>
+                          <button
+                            className="px-3 py-2 rounded-xl bg-white border border-indigo-300 text-indigo-700 text-sm font-medium hover:bg-indigo-50 transition-colors shadow-sm"
+                            onClick={(e) => { e.stopPropagation(); navigate(`/cases?business=${encodeURIComponent(b.gstin)}`); }}
+                          >
+                            Create Case
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   );

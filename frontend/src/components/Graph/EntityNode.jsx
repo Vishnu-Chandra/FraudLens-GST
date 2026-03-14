@@ -1,12 +1,13 @@
 import { Handle, Position } from 'reactflow';
 
 const typeStyles = {
-  supplier: { ring: '#6366F1', fill: '#EEF2FF', text: '#1F2937' },
-  buyer: { ring: '#22C55E', fill: '#ECFDF5', text: '#1F2937' },
-  invoice: { ring: '#F59E0B', fill: '#FFFBEB', text: '#1F2937' },
-  fraud: { ring: '#EF4444', fill: '#FEF2F2', text: '#1F2937' },
-  filing: { ring: '#8B5CF6', fill: '#F5F3FF', text: '#1F2937' },
-  center: { ring: '#2563EB', fill: '#EFF6FF', text: '#1D4ED8' },
+  supplier: { ring: '#6366F1', fill: '#EEF2FF', text: '#1F2937' },   // indigo — fallback
+  buyer:    { ring: '#22C55E', fill: '#ECFDF5', text: '#1F2937' },   // green  — normal buyer
+  invoice:  { ring: '#F59E0B', fill: '#FFFBEB', text: '#1F2937' },   // amber  — invoice
+  fraud:    { ring: '#DC2626', fill: '#FEF2F2', text: '#991B1B' },   // red    — circular trading fraud
+  highrisk: { ring: '#F97316', fill: '#FFF7ED', text: '#7C2D12' },   // orange — high-risk business
+  filing:   { ring: '#8B5CF6', fill: '#F5F3FF', text: '#1F2937' },   // purple — filing
+  center:   { ring: '#2563EB', fill: '#EFF6FF', text: '#1E40AF' },   // blue   — normal business
 };
 
 export default function EntityNode({ data }) {

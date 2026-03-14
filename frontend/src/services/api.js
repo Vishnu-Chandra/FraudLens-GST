@@ -14,6 +14,22 @@ const mockData = {
     mediumRisk: 6,
     lowRisk: 10,
   },
+  stateDistribution: [
+    { name: 'Karnataka', value: 4 },
+    { name: 'Maharashtra', value: 4 },
+    { name: 'Delhi', value: 3 },
+    { name: 'Tamil Nadu', value: 3 },
+    { name: 'Telangana', value: 3 },
+    { name: 'Other States', value: 3 },
+  ],
+  stateRiskHotspots: [
+    { state: 'Gujarat', avg_risk_score: 43, high_risk_businesses: 1, total_businesses: 2 },
+    { state: 'Delhi', avg_risk_score: 39, high_risk_businesses: 0, total_businesses: 2 },
+    { state: 'Punjab', avg_risk_score: 38, high_risk_businesses: 1, total_businesses: 2 },
+    { state: 'Karnataka', avg_risk_score: 37.5, high_risk_businesses: 1, total_businesses: 2 },
+    { state: 'Uttar Pradesh', avg_risk_score: 31.5, high_risk_businesses: 1, total_businesses: 2 },
+    { state: 'Kerala', avg_risk_score: 31, high_risk_businesses: 1, total_businesses: 2 },
+  ],
   invoiceMatch: {
     matched: 75,
     missingGstr1: 15,
@@ -24,6 +40,14 @@ const mockData = {
     valid: 60,
     suspicious: 30,
     highRisk: 10,
+  },
+  itcOverview: {
+    metrics: {
+      total_itc_claimed: 5966220,
+      total_gst_paid: 3899800,
+      average_itc_ratio: 1.56,
+      high_risk_businesses: 4,
+    },
   },
   activity: [
     { month: 'Jan', invoices: 20 },
@@ -93,6 +117,39 @@ function normalizeRiskSummary(raw) {
   };
 }
 
+function normalizeStateDistribution(raw) {
+  const data = unwrap(raw);
+  const arr = Array.isArray(data) ? data : [];
+  return arr.map((row) => ({
+    name: row.name ?? row.state ?? 'Unknown',
+    value: Number(row.value ?? row.count ?? 0),
+  })).filter((row) => row.value > 0);
+}
+
+function normalizeStateRiskHotspots(raw) {
+  const data = unwrap(raw);
+  const arr = Array.isArray(data) ? data : [];
+  return arr
+    .map((row) => ({
+      name: row.state ?? row.name ?? 'Unknown',
+      value: Number(row.avg_risk_score ?? row.value ?? 0),
+      highRiskBusinesses: Number(row.high_risk_businesses ?? 0),
+      totalBusinesses: Number(row.total_businesses ?? 0),
+    }))
+    .filter((row) => row.value > 0);
+}
+
+function normalizeItcOverview(raw) {
+  const data = raw && typeof raw === 'object' && 'metrics' in raw ? raw : { metrics: raw?.metrics ?? {} };
+  const metrics = data.metrics || {};
+  return {
+    totalItcClaimed: Number(metrics.total_itc_claimed ?? 0),
+    totalGstPaid: Number(metrics.total_gst_paid ?? 0),
+    averageItcRatio: Number(metrics.average_itc_ratio ?? 0),
+    highRiskBusinesses: Number(metrics.high_risk_businesses ?? 0),
+  };
+}
+
 function normalizeActivity(raw) {
   const data = unwrap(raw);
   const arr = Array.isArray(data) ? data : [];
@@ -143,8 +200,11 @@ async function fetchWithFallback(endpoint, mockKey) {
 
 export const dashboardApi = {
   getRiskSummary: async () => normalizeRiskSummary(await fetchWithFallback('/dashboard/risk-summary', 'riskSummary')),
+  getStateDistribution: async () => normalizeStateDistribution(await fetchWithFallback('/dashboard/state-distribution', 'stateDistribution')),
+  getStateRiskHotspots: async () => normalizeStateRiskHotspots(await fetchWithFallback('/analytics/state-risk', 'stateRiskHotspots')),
   getInvoiceMatch: async () => normalizeInvoiceMatch(await fetchWithFallback('/dashboard/invoice-match', 'invoiceMatch')),
   getItcStatus: async () => normalizeItcStatus(await fetchWithFallback('/dashboard/itc-status', 'itcStatus')),
+  getItcOverview: async () => normalizeItcOverview(await fetchWithFallback('/analytics/itc-overview', 'itcOverview')),
   getActivity: async () => normalizeActivity(await fetchWithFallback('/dashboard/activity', 'activity')),
   getTopRisk: async (limit) =>
     normalizeTopRisk(
@@ -255,7 +315,30 @@ export const businessApi = {
   },
   getReconciliationReport: async (gstin) => fetchNoThrow(`/analysis/reconciliation/${encodeURIComponent(gstin)}`),
   getAnomalies: async () => fetchNoThrow('/analysis/anomalies'),
+  getBusinessesByState: async (state) => {
+    const { data } = await api.get(`/business/state/${encodeURIComponent(state)}`);
+    return data;
+  },
  };
+
+export const analyticsApi = {
+  getStateRisk: async () => {
+    const { data } = await api.get('/analytics/state-risk');
+    return data;
+  },
+  getItcOverview: async () => {
+    const { data } = await api.get('/analytics/itc-overview');
+    return data;
+  },
+  getInvoiceActivity: async (gstin, options = {}) => {
+    const params = new URLSearchParams();
+    if (options.threshold) params.append('threshold', String(options.threshold));
+    if (options.year) params.append('year', String(options.year));
+    const qs = params.toString();
+    const { data } = await api.get(`/analytics/invoice-activity/${encodeURIComponent(gstin)}${qs ? `?${qs}` : ''}`);
+    return data;
+  },
+};
 
 // Anomaly Detection API
 export const anomalyApi = {
@@ -324,6 +407,17 @@ export const anomalyApi = {
     }
   },
 
+  // Detect invoice burst anomalies
+  detectBursts: async (payload = {}) => {
+    try {
+      const { data } = await api.post('/anomalies/detect-bursts', payload);
+      return data;
+    } catch (err) {
+      console.error('Error detecting burst anomalies:', err);
+      throw err;
+    }
+  },
+
   // Update anomaly status
   updateStatus: async (id, updates) => {
     try {
@@ -344,5 +438,71 @@ export const anomalyApi = {
       console.error('Error fetching features:', err);
       throw err;
     }
+  },
+};
+
+// Case Investigation API
+export const caseApi = {
+  createCase: async (payload) => {
+    const { data } = await api.post('/cases', payload);
+    return data;
+  },
+
+  listCases: async (filters = {}) => {
+    const params = new URLSearchParams();
+    if (filters.status) params.append('status', filters.status);
+    if (filters.priority) params.append('priority', filters.priority);
+    if (filters.investigator) params.append('investigator', filters.investigator);
+    if (filters.page) params.append('page', String(filters.page));
+    if (filters.limit) params.append('limit', String(filters.limit));
+
+    const qs = params.toString();
+    const { data } = await api.get(`/cases${qs ? `?${qs}` : ''}`);
+    return data;
+  },
+
+  getCase: async (caseId) => {
+    const { data } = await api.get(`/cases/${encodeURIComponent(caseId)}`);
+    return data;
+  },
+
+  updateCase: async (caseId, payload) => {
+    const { data } = await api.patch(`/cases/${encodeURIComponent(caseId)}`, payload);
+    return data;
+  },
+
+  deleteCase: async (caseId) => {
+    const { data } = await api.delete(`/cases/${encodeURIComponent(caseId)}`);
+    return data;
+  },
+
+  addNote: async (caseId, payload) => {
+    const { data } = await api.post(`/cases/${encodeURIComponent(caseId)}/notes`, payload);
+    return data;
+  },
+
+  getSummary: async () => {
+    const { data } = await api.get('/cases/summary');
+    return data;
+  },
+
+  getInvestigators: async () => {
+    const { data } = await api.get('/cases/investigators');
+    return data;
+  },
+};
+
+export const callApi = {
+  getHistory: async () => {
+    const { data } = await api.get('/calls/history');
+    return data;
+  },
+  getPending: async () => {
+    const { data } = await api.get('/calls/pending');
+    return data;
+  },
+  initiate: async (payload) => {
+    const { data } = await api.post('/calls/initiate', payload);
+    return data;
   },
 };

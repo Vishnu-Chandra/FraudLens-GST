@@ -12,6 +12,8 @@ import 'reactflow/dist/style.css';
 import { businessApi, investigationApi } from '../services/api';
 import EntityNode from '../components/Graph/EntityNode';
 
+const MAX_CIRCULAR_TRADES_DISPLAY = 2;
+
 const riskPalette = {
   low: { solid: '#22C55E', soft: '#D1FAE5' },
   medium: { solid: '#F59E0B', soft: '#FEF3C7' },
@@ -274,6 +276,72 @@ export default function SupplyNetwork() {
         
         return circularNodes;
       };
+
+      const findCyclePath = (graph) => {
+        const visited = new Set();
+        const inStack = new Set();
+        const stack = [];
+        let cyclePath = null;
+
+        const dfs = (node) => {
+          if (cyclePath) return;
+          visited.add(node);
+          inStack.add(node);
+          stack.push(node);
+
+          const neighbors = graph.get(node) || [];
+          for (const neighbor of neighbors) {
+            if (cyclePath) break;
+
+            if (!visited.has(neighbor)) {
+              dfs(neighbor);
+            } else if (inStack.has(neighbor)) {
+              const start = stack.indexOf(neighbor);
+              if (start !== -1) {
+                cyclePath = [...stack.slice(start), neighbor];
+                return;
+              }
+            }
+          }
+
+          stack.pop();
+          inStack.delete(node);
+        };
+
+        for (const node of graph.keys()) {
+          if (cyclePath) break;
+          if (!visited.has(node)) dfs(node);
+        }
+
+        return cyclePath;
+      };
+
+      const findCyclePaths = (graph, maxCycles = 2) => {
+        const cycles = [];
+        const blockedNodes = new Set();
+
+        for (let i = 0; i < maxCycles; i += 1) {
+          const subGraph = new Map();
+          for (const [node, neighbors] of graph.entries()) {
+            if (blockedNodes.has(node)) continue;
+            const allowedNeighbors = neighbors.filter((n) => !blockedNodes.has(n));
+            if (allowedNeighbors.length > 0) subGraph.set(node, allowedNeighbors);
+          }
+
+          if (subGraph.size === 0) break;
+
+          const cycle = findCyclePath(subGraph);
+          if (!Array.isArray(cycle) || cycle.length < 3) break;
+
+          const uniqueCycleNodes = [...new Set(cycle.slice(0, -1))];
+          if (uniqueCycleNodes.length < 2) break;
+
+          cycles.push(cycle);
+          uniqueCycleNodes.forEach((n) => blockedNodes.add(n));
+        }
+
+        return cycles;
+      };
       
       const graph = buildGraph();
       const circularNodes = findCircularNodes(graph);
@@ -366,11 +434,11 @@ export default function SupplyNetwork() {
             type: 'entity',
             position: { x, y },
             data: {
-              kind: n.tone === 'high' ? 'buyer' : n.tone === 'medium' ? 'center' : 'supplier',
+              kind: n.tone === 'high' ? 'highrisk' : 'center',
               title: (n.name).slice(0, 10),
               subtitle: n.gstin.slice(0, 6),
               size: n.size,
-              metaLeft: n.tone.toUpperCase(),
+              metaLeft: n.tone === 'high' ? '🟠 HIGH' : n.tone === 'medium' ? 'MED' : 'LOW',
               metaRight: `R:${n.riskScore}`,
               selected: selectedNode?.gstin === n.gstin,
               emphasis: n.tone === 'high',
@@ -406,6 +474,120 @@ export default function SupplyNetwork() {
           circularEdges.add(`${tx.supplier_gstin}->${tx.buyer_gstin}`);
         }
       });
+
+      // Dedicated circular-mode rendering: cleaner graph with only circular businesses and direct edges.
+      if (statusFilter === 'circular') {
+        const cyclePaths = findCyclePaths(graph, MAX_CIRCULAR_TRADES_DISPLAY);
+        const baseCircularNodeMap = new Map(rfBusinessNodes.map((n) => [n.id, n]));
+
+        let cycleDiagrams = cyclePaths
+          .map((path, diagramIndex) => {
+            const nodeOrder = [...new Set(path.slice(0, -1))];
+            const transactions = [];
+
+            for (let i = 0; i < path.length - 1; i += 1) {
+              const from = path[i];
+              const to = path[i + 1];
+              const tx = relevantTx.find((t) => t.supplier_gstin === from && t.buyer_gstin === to);
+              if (tx) transactions.push(tx);
+            }
+
+            if (transactions.length === 0 || nodeOrder.length < 2) return null;
+            return { diagramIndex, nodeOrder, transactions };
+          })
+          .filter(Boolean);
+
+        if (cycleDiagrams.length === 0) {
+          const fallbackTransactions = relevantTx
+            .filter((tx) => circularEdges.has(`${tx.supplier_gstin}->${tx.buyer_gstin}`))
+            .slice(0, MAX_CIRCULAR_TRADES_DISPLAY);
+
+          const fallbackNodeOrder = [];
+          const seenFallbackNodes = new Set();
+          fallbackTransactions.forEach((tx) => {
+            if (tx.supplier_gstin && !seenFallbackNodes.has(tx.supplier_gstin)) {
+              seenFallbackNodes.add(tx.supplier_gstin);
+              fallbackNodeOrder.push(tx.supplier_gstin);
+            }
+            if (tx.buyer_gstin && !seenFallbackNodes.has(tx.buyer_gstin)) {
+              seenFallbackNodes.add(tx.buyer_gstin);
+              fallbackNodeOrder.push(tx.buyer_gstin);
+            }
+          });
+
+          if (fallbackTransactions.length > 0 && fallbackNodeOrder.length >= 2) {
+            cycleDiagrams = [{ diagramIndex: 0, nodeOrder: fallbackNodeOrder, transactions: fallbackTransactions }];
+          }
+        }
+
+        const diagramCount = cycleDiagrams.length;
+        const positionedNodes = [];
+        const directCircularEdges = [];
+
+        cycleDiagrams.forEach((diagram) => {
+          const xCenter = diagramCount === 1 ? 0 : (diagram.diagramIndex === 0 ? -330 : 330);
+          const yCenter = 0;
+          const radius = 180;
+          const angleStep = (2 * Math.PI) / Math.max(diagram.nodeOrder.length, 1);
+
+          const nodeIdMap = new Map();
+          diagram.nodeOrder.forEach((gstin, idx) => {
+            const baseNode = baseCircularNodeMap.get(gstin);
+            if (!baseNode) return;
+            const angle = idx * angleStep;
+            const viewNodeId = `circ-${diagram.diagramIndex}-${gstin}`;
+            nodeIdMap.set(gstin, viewNodeId);
+
+            positionedNodes.push({
+              ...baseNode,
+              id: viewNodeId,
+              position: {
+                x: xCenter + Math.cos(angle) * radius,
+                y: yCenter + Math.sin(angle) * radius,
+              },
+              data: {
+                ...baseNode.data,
+                kind: 'fraud',
+                emphasis: true,
+                size: 105,
+                metaLeft: '🔄',
+                metaRight: `CYCLE ${diagram.diagramIndex + 1}`,
+              },
+            });
+          });
+
+          diagram.transactions.forEach((tx, txIdx) => {
+            const sellerId = nodeIdMap.get(tx.supplier_gstin);
+            const buyerId = nodeIdMap.get(tx.buyer_gstin);
+            if (!sellerId || !buyerId) return;
+
+            const invLabel = tx.invoice_no || tx.invoice_id || `TX-${txIdx + 1}`;
+            directCircularEdges.push({
+              id: `circ-direct-${diagram.diagramIndex}-${txIdx}-${sellerId}-${buyerId}`,
+              source: sellerId,
+              target: buyerId,
+              markerEnd: { type: MarkerType.ArrowClosed, width: 18, height: 18, color: '#B91C1C' },
+              animated: true,
+              label: `CIRCULAR ${String(invLabel).slice(-6)}`,
+              labelStyle: { fill: '#FFFFFF', fontSize: 10, fontWeight: 800 },
+              labelBgStyle: { fill: '#B91C1C', fillOpacity: 1 },
+              labelBgPadding: [6, 3],
+              labelBgBorderRadius: 6,
+              style: {
+                stroke: '#B91C1C',
+                strokeWidth: 3.6,
+                opacity: 1,
+              },
+            });
+          });
+        });
+
+        const shownCircularTransactions = cycleDiagrams.flatMap((d) => d.transactions);
+        setNodes(positionedNodes);
+        setEdges(directCircularEdges);
+        setDisplayedTransactions(shownCircularTransactions);
+        return;
+      }
       
       // Build invoice nodes between businesses - track unique invoices
       const invoiceNodeMap = new Map();
@@ -483,6 +665,10 @@ export default function SupplyNetwork() {
           if (statusFilter === 'partial') return status === 'partial' && !isCircular;
           return true;
         });
+
+        if (statusFilter === 'circular') {
+          filteredTxForDisplay = filteredTxForDisplay.slice(0, MAX_CIRCULAR_TRADES_DISPLAY);
+        }
       }
       
       // Add regular transaction edges (smart sampled for 70-80 with all types)
@@ -919,7 +1105,9 @@ export default function SupplyNetwork() {
       // Detect circular trading using the helper functions
       const graph = buildGraph(transactions);
       const circularNodes = findCircularNodes(graph);
-      const circularRings = circularNodes.size > 0 ? Math.ceil(circularNodes.size / 3) : 0;
+      const circularRings = circularNodes.size > 0
+        ? Math.min(Math.ceil(circularNodes.size / 3), MAX_CIRCULAR_TRADES_DISPLAY)
+        : 0;
       
       return {
         businesses: nodeCount,
@@ -936,7 +1124,9 @@ export default function SupplyNetwork() {
     // When a specific business is selected - use same cycle detection
     const graph = buildGraph(transactions);
     const circularNodes = findCircularNodes(graph);
-    const circularRings = circularNodes.size > 0 ? Math.ceil(circularNodes.size / 3) : 0;
+    const circularRings = circularNodes.size > 0
+      ? Math.min(Math.ceil(circularNodes.size / 3), MAX_CIRCULAR_TRADES_DISPLAY)
+      : 0;
     
     const matched = transactions.filter(tx => String(tx.status || '').toLowerCase() === 'matched').length;
     const mismatches = transactions.filter(tx => ['mismatch', 'fraud'].includes(String(tx.status || '').toLowerCase())).length;
@@ -1171,26 +1361,11 @@ export default function SupplyNetwork() {
                   </button>
                 )}
                 <div className="flex flex-wrap gap-3 text-xs font-semibold text-gray-600 mt-2">
-                  <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-green-500 shadow-md" /> 🟢 Low risk</span>
-                  <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-yellow-500 shadow-md" /> 🟡 Medium</span>
-                  <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-red-500 shadow-md" /> 🔴 High</span>
+                  <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-blue-500 shadow-md" /> Business</span>
+                  <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-orange-500 shadow-md" /> High Risk</span>
+                  <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-red-600 shadow-md" /> Circular Trading</span>
+                  <span className="inline-flex items-center gap-1.5"><span className="w-3 h-3 rounded-full bg-yellow-400 shadow-md" /> Invoices</span>
                 </div>
-                {insights.transactions > 0 && (
-                  <div className="flex flex-wrap gap-2 text-xs font-semibold text-gray-600 mt-1">
-                    <span className="inline-flex items-center gap-1">
-                      <span className="w-4 h-1 bg-green-500 rounded shadow-sm" /> ✅ Match
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                      <span className="w-4 h-1 bg-red-500 rounded shadow-sm" /> ❌ Mismatch
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                      <span className="w-4 h-1 bg-red-700 rounded shadow-sm" /> ⚠️ Fraud
-                    </span>
-                    <span className="inline-flex items-center gap-1">
-                      <span className="w-4 h-1 bg-red-700 rounded shadow-sm animate-pulse" /> 🔄 Circular
-                    </span>
-                  </div>
-                )}
               </div>
             </div>
 
@@ -1420,6 +1595,12 @@ export default function SupplyNetwork() {
                   </svg>
                   Investigate Business
                 </button>
+                <button
+                  className="mt-2 w-full px-4 py-2.5 rounded-lg bg-white border border-indigo-300 text-indigo-700 text-xs font-bold hover:bg-indigo-50 transition-all shadow-md"
+                  onClick={() => navigate(`/cases?business=${encodeURIComponent(selectedNode.gstin)}`)}
+                >
+                  🗂️ Create Case
+                </button>
               </div>
             ) : (
               <p className="text-xs text-gray-600 bg-white/60 rounded-lg p-3 border border-green-300 font-medium">
@@ -1427,25 +1608,7 @@ export default function SupplyNetwork() {
               </p>
             )}
 
-            <div className="pt-4 border-t-2 border-green-300 text-xs text-gray-700 space-y-1.5 bg-white/60 rounded-lg p-3 border border-green-300">
-              <p className="font-bold text-gray-800 flex items-center gap-1.5">
-                <span className="text-base">📖</span> Legend
-              </p>
-              <p className="flex items-center gap-1.5">• Node color = risk level (🟢 / 🟡 / 🔴)</p>
-              {insights.transactions > 0 && (
-                <>
-                  <p className="flex items-center gap-1.5">• 📄 Invoice nodes = transaction details</p>
-                  <p className="flex items-center gap-1.5">• Edge colors = transaction status:</p>
-                  <p className="pl-4 flex items-center gap-1.5">◦ Green ✅ = Matched</p>
-                  <p className="pl-4 flex items-center gap-1.5">◦ Red/Orange ❌ = Mismatch/Fraud</p>
-                  <p className="pl-4 flex items-center gap-1.5">◦ Animated ⚡ = Issue detected</p>
-                  <p className="flex items-center gap-1.5">• Thick red animated 🔄 = Circular trading</p>
-                </>
-              )}
-              {!selectedGstin && insights.transactions === 0 && (
-                <p className="flex items-center gap-1.5">• 🔍 Search for a business to see transaction network</p>
-              )}
-            </div>
+
           </div>
         </div>
       </div>

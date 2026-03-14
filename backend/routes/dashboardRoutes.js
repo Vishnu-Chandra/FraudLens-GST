@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const {
     getRiskSummary,
+    getStateDistribution,
     getInvoiceMatch,
     getItcStatus,
     getActivity,
@@ -10,6 +11,7 @@ const {
 } = require('../controllers/dashboardController');
 
 router.get('/risk-summary', getRiskSummary);
+router.get('/state-distribution', getStateDistribution);
 router.get('/invoice-match', getInvoiceMatch);
 router.get('/itc-status', getItcStatus);
 router.get('/activity', getActivity);

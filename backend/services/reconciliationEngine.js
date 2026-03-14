@@ -3,9 +3,11 @@ const GSTR1 = require("../models/GSTR1");
 const GSTR3B = require("../models/GSTR3B");
 const EWayBill = require("../models/EWayBill");
 
-async function reconcileInvoices() {
-
-  const invoices = await Invoice.find();
+async function reconcileInvoices(gstin) {
+  const query = gstin
+    ? { $or: [{ seller_gstin: gstin }, { buyer_gstin: gstin }] }
+    : {};
+  const invoices = await Invoice.find(query);
 
   const results = [];
 

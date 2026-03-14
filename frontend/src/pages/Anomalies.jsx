@@ -1,11 +1,15 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { anomalyApi } from '../services/api';
 
 export default function Anomalies() {
+  const navigate = useNavigate();
   const [anomalies, setAnomalies] = useState([]);
   const [stats, setStats] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedAnomaly, setSelectedAnomaly] = useState(null);
+  const [liveFeatures, setLiveFeatures] = useState(null);
+  const [featuresLoading, setFeaturesLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [actionLoading, setActionLoading] = useState(false);
   const [notification, setNotification] = useState(null);
@@ -18,6 +22,28 @@ export default function Anomalies() {
   useEffect(() => {
     loadData();
   }, [filters]);
+
+  useEffect(() => {
+    async function loadLiveFeatures() {
+      if (!selectedAnomaly?.businessGstin) {
+        setLiveFeatures(null);
+        return;
+      }
+
+      try {
+        setFeaturesLoading(true);
+        const response = await anomalyApi.getFeatures(selectedAnomaly.businessGstin);
+        setLiveFeatures(response?.data || null);
+      } catch (error) {
+        console.error('Error loading live features:', error);
+        setLiveFeatures(null);
+      } finally {
+        setFeaturesLoading(false);
+      }
+    }
+
+    loadLiveFeatures();
+  }, [selectedAnomaly]);
 
   async function loadData() {
     try {
@@ -80,7 +106,7 @@ export default function Anomalies() {
   }
 
   function exportToCSV() {
-    const headers = ['Business', 'GSTIN', 'Type', 'Risk Level', 'Fraud Probability', 'Status', 'Detected At'];
+    const headers = ['Business', 'GSTIN', 'Anomaly Type', 'Risk Level', 'Fraud Probability', 'Status', 'Detected At'];
     const rows = filteredAnomalies.map(a => [
       a.businessName,
       a.businessGstin,
@@ -151,6 +177,15 @@ export default function Anomalies() {
     }
   };
 
+  const getTypeLabel = (anomaly) => {
+    if (anomaly.type === 'AI_PREDICTION') return 'ML Prediction';
+
+    return (anomaly.title || anomaly.type || '')
+      .replace(/AI Prediction/gi, 'ML Prediction')
+      .replace(/AI_PREDICTION/g, 'ML Prediction')
+      .replace(/_/g, ' ');
+  };
+
   return (
     <div className="space-y-6">
       {/* Notification Toast */}
@@ -194,15 +229,15 @@ export default function Anomalies() {
               </div>
               <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4">
                 <p className="text-xs text-white/90 font-semibold uppercase tracking-wide">High Risk</p>
-                <p className="text-3xl font-bold mt-1">{stats.byRisk?.HIGH || 0}</p>
+                <p className="text-3xl font-bold mt-1">{stats.highRisk ?? stats.byRiskLevel?.HIGH ?? 0}</p>
               </div>
               <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4">
-                <p className="text-xs text-white/90 font-semibold uppercase tracking-wide">AI Detected</p>
-                <p className="text-3xl font-bold mt-1">{stats.byType?.AI_PREDICTION || 0}</p>
+                <p className="text-xs text-white/90 font-semibold uppercase tracking-wide">ML Detected</p>
+                <p className="text-3xl font-bold mt-1">{stats.aiDetected ?? stats.byType?.AI_PREDICTION ?? 0}</p>
               </div>
               <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-xl p-4">
                 <p className="text-xs text-white/90 font-semibold uppercase tracking-wide">Last 7 Days</p>
-                <p className="text-3xl font-bold mt-1">{stats.recentCount || 0}</p>
+                <p className="text-3xl font-bold mt-1">{stats.recent ?? 0}</p>
               </div>
             </div>
           )}
@@ -276,7 +311,7 @@ export default function Anomalies() {
             className="px-4 py-2 rounded-xl border-2 border-indigo-200 bg-white text-sm font-medium focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400"
           >
             <option value="all">All Types</option>
-            <option value="AI_PREDICTION">🤖 AI Prediction</option>
+            <option value="AI_PREDICTION">🤖 ML Prediction</option>
             <option value="GRAPH_ANALYSIS">🌐 Graph Analysis</option>
             <option value="RULE_BASED">📋 Rule-Based</option>
             <option value="MANUAL">👤 Manual</option>
@@ -356,17 +391,18 @@ export default function Anomalies() {
             <table className="w-full">
               <thead className="bg-gradient-to-r from-gray-50 to-gray-100 border-b-2 border-gray-200">
                 <tr>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Type</th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Business</th>
+                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Anomaly Type</th>
+                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Business Name</th>
+                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">GSTIN</th>
                   <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Risk Level</th>
                   <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Fraud Probability</th>
                   <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Status</th>
                   <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Detected</th>
-                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Action</th>
+                  <th className="px-6 py-4 text-left text-xs font-bold text-gray-700 uppercase tracking-wider">Actions</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
-                {anomalies.map((anomaly) => (
+                {filteredAnomalies.map((anomaly) => (
                   <tr 
                     key={anomaly._id} 
                     className="hover:bg-indigo-50 transition-colors cursor-pointer"
@@ -375,15 +411,15 @@ export default function Anomalies() {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold border ${getTypeColor(anomaly.type)}`}>
                         <span className="text-base">{getTypeIcon(anomaly.type)}</span>
-                        {anomaly.type.replace('_', ' ')}
+                        {getTypeLabel(anomaly)}
                       </span>
                     </td>
                     <td className="px-6 py-4">
                       <div className="text-sm">
                         <div className="font-semibold text-gray-900">{anomaly.businessName}</div>
-                        <div className="text-gray-600 text-xs">{anomaly.businessGstin}</div>
                       </div>
                     </td>
+                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-700">{anomaly.businessGstin}</td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`inline-flex px-3 py-1.5 rounded-full text-xs font-bold border-2 ${getRiskColor(anomaly.riskLevel)}`}>
                         {anomaly.riskLevel}
@@ -480,7 +516,7 @@ export default function Anomalies() {
                 <div className="bg-gradient-to-br from-blue-50 to-indigo-50 border-2 border-blue-200 rounded-xl p-4">
                   <p className="text-xs text-blue-700 font-semibold uppercase">Detection Type</p>
                   <p className="text-2xl font-bold text-blue-600 mt-1">
-                    {selectedAnomaly.type === 'AI_PREDICTION' ? '🤖 AI' : 
+                    {selectedAnomaly.type === 'AI_PREDICTION' ? '🤖 ML' : 
                      selectedAnomaly.type === 'GRAPH_ANALYSIS' ? '🌐 Graph' :
                      selectedAnomaly.type === 'RULE_BASED' ? '📋 Rule' : '👤 Manual'}
                   </p>
@@ -509,6 +545,12 @@ export default function Anomalies() {
                   className="flex-1 px-5 py-3 rounded-xl bg-gradient-to-r from-orange-600 to-red-600 text-white font-bold hover:from-orange-700 hover:to-red-700 transition-all shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   ⬆️ Escalate
+                </button>
+                <button
+                  onClick={() => navigate(`/cases?business=${encodeURIComponent(selectedAnomaly.businessGstin)}&anomaly=${encodeURIComponent(selectedAnomaly._id)}`)}
+                  className="flex-1 px-5 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg"
+                >
+                  🗂️ Create Case
                 </button>
               </div>
 
@@ -540,14 +582,17 @@ export default function Anomalies() {
               )}
 
               {/* Features */}
-              {selectedAnomaly.features && (
+              {(selectedAnomaly.features || liveFeatures) && (
                 <div className="bg-indigo-50 border-2 border-indigo-200 rounded-xl p-4">
                   <h3 className="font-bold text-gray-900 flex items-center gap-2 mb-3">
                     <span className="text-lg">📊</span>
                     Analysis Features
                   </h3>
+                  {featuresLoading && (
+                    <p className="text-xs text-indigo-700 mb-3">Refreshing latest business features...</p>
+                  )}
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                    {Object.entries(selectedAnomaly.features).map(([key, value]) => (
+                    {Object.entries({ ...(selectedAnomaly.features || {}), ...(liveFeatures || {}) }).map(([key, value]) => (
                       <div key={key} className="bg-white rounded-lg p-3 border border-indigo-200">
                         <p className="text-xs text-gray-600 font-medium">{key.replace(/([A-Z])/g, ' $1').trim()}</p>
                         <p className="text-lg font-bold text-gray-900 mt-1">

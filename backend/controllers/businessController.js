@@ -1,6 +1,7 @@
 const Business = require("../models/Business");
 const Invoice = require("../models/Invoice");
 const GSTR1 = require("../models/GSTR1");
+const Anomaly = require('../models/Anomaly');
 
 exports.createBusiness = async (req, res) => {
 
@@ -114,5 +115,39 @@ exports.getBusinessTransactions = async (req, res) => {
     res.json({ invoices: transactions });
   } catch (error) {
     res.status(500).json({ error: error.message });
+  }
+};
+
+exports.getBusinessesByState = async (req, res) => {
+  try {
+    const rawState = decodeURIComponent(String(req.params.state || '')).trim();
+    if (!rawState) {
+      return res.status(400).json({ success: false, message: 'State is required' });
+    }
+
+    const stateRegex = new RegExp(`^${rawState.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i');
+    const businesses = await Business.find({ state: stateRegex })
+      .select('gstin name state riskScore riskCategory invoiceCount totalTaxableValue')
+      .lean();
+
+    const gstins = businesses.map((b) => b.gstin).filter(Boolean);
+    const anomalies = gstins.length > 0
+      ? await Anomaly.find({ businessGstin: { $in: gstins } })
+          .select('businessGstin businessName type source riskLevel fraudProbability status description detectedAt')
+          .sort({ detectedAt: -1 })
+          .lean()
+      : [];
+
+    return res.json({
+      success: true,
+      data: {
+        state: rawState,
+        businesses,
+        anomalies,
+      },
+    });
+  } catch (error) {
+    console.error('Error fetching state businesses:', error);
+    return res.status(500).json({ success: false, message: error.message });
   }
 };

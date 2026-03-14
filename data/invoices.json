@@ -5,1742 +5,1960 @@
     "buyer_gstin": "27BBBBB2222B2Z6",
     "amount": 87296,
     "gst_amount": 15713,
+    "invoice_date": "2026-01-01",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0002",
     "seller_gstin": "27BBBBB2222B2Z6",
     "buyer_gstin": "07CCCCC3333C3Z7",
-    "amount": 81639,
-    "gst_amount": 14695,
+    "amount": 98024,
+    "gst_amount": 17644,
+    "invoice_date": "2026-01-08",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0003",
     "seller_gstin": "07CCCCC3333C3Z7",
     "buyer_gstin": "33DDDDD4444D4Z8",
-    "amount": 98024,
-    "gst_amount": 17644,
+    "amount": 94628,
+    "gst_amount": 17033,
+    "invoice_date": "2026-01-05",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0004",
     "seller_gstin": "33DDDDD4444D4Z8",
     "buyer_gstin": "29AAAAA1111A1Z5",
-    "amount": 96049,
-    "gst_amount": 17289,
+    "amount": 86717,
+    "gst_amount": 15609,
+    "invoice_date": "2026-01-22",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0005",
     "seller_gstin": "29AAAAA1111A1Z5",
     "buyer_gstin": "27BBBBB2222B2Z6",
-    "amount": 94628,
-    "gst_amount": 17033,
+    "amount": 115741,
+    "gst_amount": 20833,
+    "invoice_date": "2026-02-03",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0006",
     "seller_gstin": "27BBBBB2222B2Z6",
     "buyer_gstin": "07CCCCC3333C3Z7",
-    "amount": 89144,
-    "gst_amount": 16046,
+    "amount": 118698,
+    "gst_amount": 21366,
+    "invoice_date": "2026-02-14",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0007",
     "seller_gstin": "07CCCCC3333C3Z7",
     "buyer_gstin": "33DDDDD4444D4Z8",
-    "amount": 86717,
-    "gst_amount": 15609,
+    "amount": 82082,
+    "gst_amount": 14775,
+    "invoice_date": "2026-02-01",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0008",
     "seller_gstin": "33DDDDD4444D4Z8",
     "buyer_gstin": "29AAAAA1111A1Z5",
-    "amount": 115741,
-    "gst_amount": 20833,
+    "amount": 86140,
+    "gst_amount": 15505,
+    "invoice_date": "2026-02-07",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0009",
     "seller_gstin": "29AAAAA1111A1Z5",
     "buyer_gstin": "27BBBBB2222B2Z6",
-    "amount": 85697,
-    "gst_amount": 15425,
+    "amount": 95247,
+    "gst_amount": 17144,
+    "invoice_date": "2026-03-17",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0010",
     "seller_gstin": "27BBBBB2222B2Z6",
     "buyer_gstin": "07CCCCC3333C3Z7",
-    "amount": 118698,
-    "gst_amount": 21366,
+    "amount": 119453,
+    "gst_amount": 21502,
+    "invoice_date": "2026-03-01",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0011",
     "seller_gstin": "07CCCCC3333C3Z7",
     "buyer_gstin": "33DDDDD4444D4Z8",
-    "amount": 107651,
-    "gst_amount": 19377,
+    "amount": 116781,
+    "gst_amount": 21021,
+    "invoice_date": "2026-03-07",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0012",
     "seller_gstin": "33DDDDD4444D4Z8",
     "buyer_gstin": "29AAAAA1111A1Z5",
-    "amount": 82082,
-    "gst_amount": 14775,
+    "amount": 115713,
+    "gst_amount": 20828,
+    "invoice_date": "2026-03-14",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0013",
     "seller_gstin": "24GGGGG7777G7Z2",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 53905,
-    "gst_amount": 9703,
+    "amount": 78893,
+    "gst_amount": 14201,
+    "invoice_date": "2026-01-15",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0014",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 62280,
-    "gst_amount": 11210,
+    "amount": 127236,
+    "gst_amount": 22902,
+    "invoice_date": "2026-01-09",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0015",
     "seller_gstin": "09HHHHH8888H8Z3",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 78657,
-    "gst_amount": 14158,
+    "amount": 50851,
+    "gst_amount": 9153,
+    "invoice_date": "2026-01-25",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0016",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 80495,
-    "gst_amount": 14489,
+    "amount": 70926,
+    "gst_amount": 12767,
+    "invoice_date": "2026-01-23",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0017",
     "seller_gstin": "03IIIII9999I9Z4",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 116237,
-    "gst_amount": 20923,
+    "amount": 105392,
+    "gst_amount": 18971,
+    "invoice_date": "2026-01-11",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0018",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 128907,
-    "gst_amount": 23203,
+    "amount": 86421,
+    "gst_amount": 15556,
+    "invoice_date": "2026-01-05",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0019",
     "seller_gstin": "06JJJJJ1010J1Z6",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 53478,
-    "gst_amount": 9626,
+    "amount": 78221,
+    "gst_amount": 14080,
+    "invoice_date": "2026-01-25",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0020",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 123563,
-    "gst_amount": 22241,
+    "amount": 94118,
+    "gst_amount": 16941,
+    "invoice_date": "2026-01-04",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0021",
     "seller_gstin": "29KKKKK2020K2Z7",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 76062,
-    "gst_amount": 13691,
+    "amount": 62156,
+    "gst_amount": 11188,
+    "invoice_date": "2026-01-13",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0022",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 143850,
-    "gst_amount": 25893,
+    "amount": 62676,
+    "gst_amount": 11282,
+    "invoice_date": "2026-01-12",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0023",
     "seller_gstin": "27LLLLL3030L3Z8",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 135181,
-    "gst_amount": 24333,
+    "amount": 95082,
+    "gst_amount": 17115,
+    "invoice_date": "2026-01-20",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0024",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 141924,
-    "gst_amount": 25546,
+    "amount": 84671,
+    "gst_amount": 15241,
+    "invoice_date": "2026-01-26",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0025",
     "seller_gstin": "24GGGGG7777G7Z2",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 121426,
-    "gst_amount": 21857,
+    "amount": 55695,
+    "gst_amount": 10025,
+    "invoice_date": "2026-02-24",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0026",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 104987,
-    "gst_amount": 18898,
+    "amount": 110217,
+    "gst_amount": 19839,
+    "invoice_date": "2026-02-18",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0027",
     "seller_gstin": "09HHHHH8888H8Z3",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 78893,
-    "gst_amount": 14201,
+    "amount": 66361,
+    "gst_amount": 11945,
+    "invoice_date": "2026-02-13",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0028",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 108878,
-    "gst_amount": 19598,
+    "amount": 60328,
+    "gst_amount": 10859,
+    "invoice_date": "2026-02-18",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0029",
     "seller_gstin": "03IIIII9999I9Z4",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 127236,
-    "gst_amount": 22902,
+    "amount": 88427,
+    "gst_amount": 15917,
+    "invoice_date": "2026-02-27",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0030",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 86463,
-    "gst_amount": 15563,
+    "amount": 132397,
+    "gst_amount": 23831,
+    "invoice_date": "2026-02-20",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0031",
     "seller_gstin": "06JJJJJ1010J1Z6",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 50851,
-    "gst_amount": 9153,
+    "amount": 97400,
+    "gst_amount": 17532,
+    "invoice_date": "2026-02-19",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0032",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 149458,
-    "gst_amount": 26902,
+    "amount": 75203,
+    "gst_amount": 13537,
+    "invoice_date": "2026-02-23",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0033",
     "seller_gstin": "29KKKKK2020K2Z7",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 70926,
-    "gst_amount": 12767,
+    "amount": 59116,
+    "gst_amount": 10641,
+    "invoice_date": "2026-02-02",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0034",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 141506,
-    "gst_amount": 25471,
+    "amount": 136673,
+    "gst_amount": 24601,
+    "invoice_date": "2026-02-08",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0035",
     "seller_gstin": "27LLLLL3030L3Z8",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 105392,
-    "gst_amount": 18971,
+    "amount": 87930,
+    "gst_amount": 15827,
+    "invoice_date": "2026-02-03",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0036",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 94597,
-    "gst_amount": 17027,
+    "amount": 80512,
+    "gst_amount": 14492,
+    "invoice_date": "2026-02-28",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0037",
     "seller_gstin": "24GGGGG7777G7Z2",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 86421,
-    "gst_amount": 15556,
+    "amount": 63238,
+    "gst_amount": 11383,
+    "invoice_date": "2026-03-13",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0038",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 70379,
-    "gst_amount": 12668,
+    "amount": 86434,
+    "gst_amount": 15558,
+    "invoice_date": "2026-03-15",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0039",
     "seller_gstin": "09HHHHH8888H8Z3",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 78221,
-    "gst_amount": 14080,
+    "amount": 133320,
+    "gst_amount": 23998,
+    "invoice_date": "2026-03-27",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0040",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 94118,
-    "gst_amount": 16941,
+    "amount": 97819,
+    "gst_amount": 17607,
+    "invoice_date": "2026-03-06",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0041",
     "seller_gstin": "03IIIII9999I9Z4",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 63396,
-    "gst_amount": 11411,
+    "amount": 98520,
+    "gst_amount": 17734,
+    "invoice_date": "2026-03-12",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0042",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 62156,
-    "gst_amount": 11188,
+    "amount": 77460,
+    "gst_amount": 13943,
+    "invoice_date": "2026-03-22",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0043",
     "seller_gstin": "06JJJJJ1010J1Z6",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 99797,
-    "gst_amount": 17963,
+    "amount": 84993,
+    "gst_amount": 15299,
+    "invoice_date": "2026-03-23",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0044",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 62676,
-    "gst_amount": 11282,
+    "amount": 139593,
+    "gst_amount": 25127,
+    "invoice_date": "2026-03-21",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0045",
     "seller_gstin": "29KKKKK2020K2Z7",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 97052,
-    "gst_amount": 17469,
+    "amount": 59358,
+    "gst_amount": 10684,
+    "invoice_date": "2026-03-20",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0046",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 95082,
-    "gst_amount": 17115,
+    "amount": 133227,
+    "gst_amount": 23981,
+    "invoice_date": "2026-03-06",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0047",
     "seller_gstin": "27LLLLL3030L3Z8",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 129131,
-    "gst_amount": 23244,
+    "amount": 120010,
+    "gst_amount": 21602,
+    "invoice_date": "2026-03-24",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0048",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 84671,
-    "gst_amount": 15241,
+    "amount": 82087,
+    "gst_amount": 14776,
+    "invoice_date": "2026-03-06",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0049",
     "seller_gstin": "24GGGGG7777G7Z2",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 55695,
-    "gst_amount": 10025,
+    "amount": 110589,
+    "gst_amount": 19906,
+    "invoice_date": "2026-04-13",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0050",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 145647,
-    "gst_amount": 26216,
+    "amount": 85382,
+    "gst_amount": 15369,
+    "invoice_date": "2026-04-21",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0051",
     "seller_gstin": "09HHHHH8888H8Z3",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 110217,
-    "gst_amount": 19839,
+    "amount": 140198,
+    "gst_amount": 25236,
+    "invoice_date": "2026-04-18",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0052",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 120284,
-    "gst_amount": 21651,
+    "amount": 78785,
+    "gst_amount": 14181,
+    "invoice_date": "2026-04-22",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0053",
     "seller_gstin": "03IIIII9999I9Z4",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 66361,
-    "gst_amount": 11945,
+    "amount": 92504,
+    "gst_amount": 16651,
+    "invoice_date": "2026-04-27",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0054",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 99615,
-    "gst_amount": 17931,
+    "amount": 57331,
+    "gst_amount": 10320,
+    "invoice_date": "2026-04-08",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0055",
     "seller_gstin": "06JJJJJ1010J1Z6",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 60328,
-    "gst_amount": 10859,
+    "amount": 54207,
+    "gst_amount": 9757,
+    "invoice_date": "2026-04-26",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0056",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 122357,
-    "gst_amount": 22024,
+    "amount": 91347,
+    "gst_amount": 16442,
+    "invoice_date": "2026-04-13",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0057",
     "seller_gstin": "29KKKKK2020K2Z7",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 88427,
-    "gst_amount": 15917,
+    "amount": 85093,
+    "gst_amount": 15317,
+    "invoice_date": "2026-04-03",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0058",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 132397,
-    "gst_amount": 23831,
+    "amount": 77653,
+    "gst_amount": 13978,
+    "invoice_date": "2026-04-19",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0059",
     "seller_gstin": "27LLLLL3030L3Z8",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 131070,
-    "gst_amount": 23593,
+    "amount": 144098,
+    "gst_amount": 25938,
+    "invoice_date": "2026-04-11",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0060",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 97400,
-    "gst_amount": 17532,
+    "amount": 77869,
+    "gst_amount": 14016,
+    "invoice_date": "2026-04-21",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0061",
     "seller_gstin": "24GGGGG7777G7Z2",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 125674,
-    "gst_amount": 22621,
+    "amount": 115435,
+    "gst_amount": 20778,
+    "invoice_date": "2026-05-13",
     "month": "May"
   },
   {
     "invoice_id": "INV0062",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 75203,
-    "gst_amount": 13537,
+    "amount": 134259,
+    "gst_amount": 24167,
+    "invoice_date": "2026-05-15",
     "month": "May"
   },
   {
     "invoice_id": "INV0063",
     "seller_gstin": "09HHHHH8888H8Z3",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 142349,
-    "gst_amount": 25623,
+    "amount": 68726,
+    "gst_amount": 12371,
+    "invoice_date": "2026-05-09",
     "month": "May"
   },
   {
     "invoice_id": "INV0064",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 59116,
-    "gst_amount": 10641,
+    "amount": 68301,
+    "gst_amount": 12294,
+    "invoice_date": "2026-05-08",
     "month": "May"
   },
   {
     "invoice_id": "INV0065",
     "seller_gstin": "03IIIII9999I9Z4",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 56006,
-    "gst_amount": 10081,
+    "amount": 147647,
+    "gst_amount": 26576,
+    "invoice_date": "2026-05-18",
     "month": "May"
   },
   {
     "invoice_id": "INV0066",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 136673,
-    "gst_amount": 24601,
+    "amount": 120644,
+    "gst_amount": 21716,
+    "invoice_date": "2026-05-09",
     "month": "May"
   },
   {
     "invoice_id": "INV0067",
     "seller_gstin": "06JJJJJ1010J1Z6",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 79871,
-    "gst_amount": 14377,
+    "amount": 147912,
+    "gst_amount": 26624,
+    "invoice_date": "2026-05-19",
     "month": "May"
   },
   {
     "invoice_id": "INV0068",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 87930,
-    "gst_amount": 15827,
+    "amount": 106155,
+    "gst_amount": 19108,
+    "invoice_date": "2026-05-19",
     "month": "May"
   },
   {
     "invoice_id": "INV0069",
     "seller_gstin": "29KKKKK2020K2Z7",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 60458,
-    "gst_amount": 10882,
+    "amount": 102350,
+    "gst_amount": 18423,
+    "invoice_date": "2026-05-12",
     "month": "May"
   },
   {
     "invoice_id": "INV0070",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 80512,
-    "gst_amount": 14492,
+    "amount": 78746,
+    "gst_amount": 14174,
+    "invoice_date": "2026-05-05",
     "month": "May"
   },
   {
     "invoice_id": "INV0071",
     "seller_gstin": "27LLLLL3030L3Z8",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 63238,
-    "gst_amount": 11383,
+    "amount": 116784,
+    "gst_amount": 21021,
+    "invoice_date": "2026-05-16",
     "month": "May"
   },
   {
     "invoice_id": "INV0072",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 99823,
-    "gst_amount": 17968,
+    "amount": 61915,
+    "gst_amount": 11145,
+    "invoice_date": "2026-05-25",
     "month": "May"
   },
   {
     "invoice_id": "INV0073",
     "seller_gstin": "24GGGGG7777G7Z2",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 86434,
-    "gst_amount": 15558,
+    "amount": 56175,
+    "gst_amount": 10112,
+    "invoice_date": "2026-06-28",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0074",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 109429,
-    "gst_amount": 19697,
+    "amount": 64371,
+    "gst_amount": 11587,
+    "invoice_date": "2026-06-05",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0075",
     "seller_gstin": "09HHHHH8888H8Z3",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 133320,
-    "gst_amount": 23998,
+    "amount": 132240,
+    "gst_amount": 23803,
+    "invoice_date": "2026-06-06",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0076",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 97819,
-    "gst_amount": 17607,
+    "amount": 139192,
+    "gst_amount": 25055,
+    "invoice_date": "2026-06-14",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0077",
     "seller_gstin": "03IIIII9999I9Z4",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 71319,
-    "gst_amount": 12837,
+    "amount": 128172,
+    "gst_amount": 23071,
+    "invoice_date": "2026-06-03",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0078",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 98520,
-    "gst_amount": 17734,
+    "amount": 100432,
+    "gst_amount": 18078,
+    "invoice_date": "2026-06-13",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0079",
     "seller_gstin": "06JJJJJ1010J1Z6",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 96566,
-    "gst_amount": 17382,
+    "amount": 128104,
+    "gst_amount": 23059,
+    "invoice_date": "2026-06-15",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0080",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 77460,
-    "gst_amount": 13943,
+    "amount": 119352,
+    "gst_amount": 21483,
+    "invoice_date": "2026-06-09",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0081",
     "seller_gstin": "29KKKKK2020K2Z7",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 137841,
-    "gst_amount": 24811,
+    "amount": 122512,
+    "gst_amount": 22052,
+    "invoice_date": "2026-06-28",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0082",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 84993,
-    "gst_amount": 15299,
+    "amount": 51504,
+    "gst_amount": 9271,
+    "invoice_date": "2026-06-22",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0083",
     "seller_gstin": "27LLLLL3030L3Z8",
     "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 141988,
-    "gst_amount": 25558,
+    "amount": 144466,
+    "gst_amount": 26004,
+    "invoice_date": "2026-06-04",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0084",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 139593,
-    "gst_amount": 25127,
+    "amount": 139353,
+    "gst_amount": 25084,
+    "invoice_date": "2026-06-18",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0085",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 134939,
-    "gst_amount": 24289,
+    "amount": 148419,
+    "gst_amount": 26715,
+    "invoice_date": "2026-01-09",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0086",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 59358,
-    "gst_amount": 10684,
+    "amount": 134012,
+    "gst_amount": 24122,
+    "invoice_date": "2026-01-11",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0087",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 129840,
-    "gst_amount": 23371,
+    "amount": 64621,
+    "gst_amount": 11632,
+    "invoice_date": "2026-01-10",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0088",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 133227,
-    "gst_amount": 23981,
+    "amount": 106985,
+    "gst_amount": 19257,
+    "invoice_date": "2026-01-06",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0089",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 72431,
-    "gst_amount": 13038,
+    "amount": 109470,
+    "gst_amount": 19705,
+    "invoice_date": "2026-01-01",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0090",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "36NNNNN5050N5Z1",
-    "amount": 120010,
-    "gst_amount": 21602,
+    "amount": 144646,
+    "gst_amount": 26036,
+    "invoice_date": "2026-01-24",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0091",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "32FFFFF6666F6Z1",
-    "amount": 145568,
-    "gst_amount": 26202,
+    "amount": 84522,
+    "gst_amount": 15214,
+    "invoice_date": "2026-01-17",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0092",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 82087,
-    "gst_amount": 14776,
+    "amount": 149871,
+    "gst_amount": 26977,
+    "invoice_date": "2026-02-06",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0093",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 71417,
-    "gst_amount": 12855,
+    "amount": 116542,
+    "gst_amount": 20978,
+    "invoice_date": "2026-02-04",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0094",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 110589,
-    "gst_amount": 19906,
+    "amount": 131959,
+    "gst_amount": 23753,
+    "invoice_date": "2026-02-10",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0095",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 99735,
-    "gst_amount": 17952,
+    "amount": 133748,
+    "gst_amount": 24075,
+    "invoice_date": "2026-02-17",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0096",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 85382,
-    "gst_amount": 15369,
+    "amount": 129818,
+    "gst_amount": 23367,
+    "invoice_date": "2026-02-07",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0097",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "36NNNNN5050N5Z1",
-    "amount": 133886,
-    "gst_amount": 24099,
+    "amount": 70032,
+    "gst_amount": 12606,
+    "invoice_date": "2026-02-12",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0098",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "32FFFFF6666F6Z1",
-    "amount": 140198,
-    "gst_amount": 25236,
+    "amount": 149943,
+    "gst_amount": 26990,
+    "invoice_date": "2026-02-06",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0099",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 123000,
-    "gst_amount": 22140,
+    "amount": 120697,
+    "gst_amount": 21725,
+    "invoice_date": "2026-03-25",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0100",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 78785,
-    "gst_amount": 14181,
+    "amount": 119514,
+    "gst_amount": 21513,
+    "invoice_date": "2026-03-01",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0101",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 139733,
-    "gst_amount": 25152,
+    "amount": 128504,
+    "gst_amount": 23131,
+    "invoice_date": "2026-03-11",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0102",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 92504,
-    "gst_amount": 16651,
+    "amount": 114042,
+    "gst_amount": 20528,
+    "invoice_date": "2026-03-01",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0103",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 57331,
-    "gst_amount": 10320,
+    "amount": 64662,
+    "gst_amount": 11639,
+    "invoice_date": "2026-03-12",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0104",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "36NNNNN5050N5Z1",
-    "amount": 80021,
-    "gst_amount": 14404,
+    "amount": 90306,
+    "gst_amount": 16255,
+    "invoice_date": "2026-03-08",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0105",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "32FFFFF6666F6Z1",
-    "amount": 54207,
-    "gst_amount": 9757,
+    "amount": 57592,
+    "gst_amount": 10367,
+    "invoice_date": "2026-03-08",
     "month": "Mar"
   },
   {
     "invoice_id": "INV0106",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 91347,
-    "gst_amount": 16442,
+    "amount": 124364,
+    "gst_amount": 22386,
+    "invoice_date": "2026-04-03",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0107",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 102581,
-    "gst_amount": 18465,
+    "amount": 61226,
+    "gst_amount": 11021,
+    "invoice_date": "2026-04-24",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0108",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 85093,
-    "gst_amount": 15317,
+    "amount": 113699,
+    "gst_amount": 20466,
+    "invoice_date": "2026-04-27",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0109",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 58675,
-    "gst_amount": 10562,
+    "amount": 59071,
+    "gst_amount": 10633,
+    "invoice_date": "2026-04-25",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0110",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 77653,
-    "gst_amount": 13978,
+    "amount": 119822,
+    "gst_amount": 21568,
+    "invoice_date": "2026-04-25",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0111",
     "seller_gstin": "32FFFFF6666F6Z1",
     "buyer_gstin": "36NNNNN5050N5Z1",
-    "amount": 124341,
-    "gst_amount": 22381,
+    "amount": 66483,
+    "gst_amount": 11967,
+    "invoice_date": "2026-04-05",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0112",
     "seller_gstin": "36EEEEE5555E5Z9",
     "buyer_gstin": "32FFFFF6666F6Z1",
-    "amount": 144098,
-    "gst_amount": 25938,
+    "amount": 136474,
+    "gst_amount": 24565,
+    "invoice_date": "2026-04-16",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0113",
-    "seller_gstin": "27LLLLL3030L3Z8",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 115435,
-    "gst_amount": 20778,
-    "month": "Jun"
-  },
-  {
-    "invoice_id": "INV0114",
-    "seller_gstin": "33MMMMM4040M4Z9",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 68726,
-    "gst_amount": 12371,
-    "month": "Apr"
-  },
-  {
-    "invoice_id": "INV0115",
-    "seller_gstin": "29KKKKK2020K2Z7",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 147647,
-    "gst_amount": 26576,
-    "month": "Feb"
-  },
-  {
-    "invoice_id": "INV0116",
-    "seller_gstin": "29KKKKK2020K2Z7",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 106155,
-    "gst_amount": 19108,
-    "month": "May"
-  },
-  {
-    "invoice_id": "INV0117",
-    "seller_gstin": "33MMMMM4040M4Z9",
-    "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 68131,
-    "gst_amount": 12264,
-    "month": "Feb"
-  },
-  {
-    "invoice_id": "INV0118",
-    "seller_gstin": "36NNNNN5050N5Z1",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 64371,
-    "gst_amount": 11587,
-    "month": "Jan"
-  },
-  {
-    "invoice_id": "INV0119",
-    "seller_gstin": "03IIIII9999I9Z4",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 139192,
-    "gst_amount": 25055,
-    "month": "Feb"
-  },
-  {
-    "invoice_id": "INV0120",
-    "seller_gstin": "33MMMMM4040M4Z9",
-    "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 100432,
-    "gst_amount": 18078,
-    "month": "Jan"
-  },
-  {
-    "invoice_id": "INV0121",
-    "seller_gstin": "33MMMMM4040M4Z9",
-    "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 119352,
-    "gst_amount": 21483,
-    "month": "Apr"
-  },
-  {
-    "invoice_id": "INV0122",
-    "seller_gstin": "29KKKKK2020K2Z7",
-    "buyer_gstin": "36NNNNN5050N5Z1",
-    "amount": 139166,
-    "gst_amount": 25050,
-    "month": "Jan"
-  },
-  {
-    "invoice_id": "INV0123",
-    "seller_gstin": "09HHHHH8888H8Z3",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 148419,
-    "gst_amount": 26715,
-    "month": "May"
-  },
-  {
-    "invoice_id": "INV0124",
-    "seller_gstin": "29KKKKK2020K2Z7",
-    "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 94587,
-    "gst_amount": 17026,
-    "month": "Jun"
-  },
-  {
-    "invoice_id": "INV0125",
-    "seller_gstin": "09HHHHH8888H8Z3",
-    "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 70730,
-    "gst_amount": 12731,
-    "month": "Apr"
-  },
-  {
-    "invoice_id": "INV0126",
-    "seller_gstin": "36NNNNN5050N5Z1",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 144329,
-    "gst_amount": 25979,
-    "month": "Jun"
-  },
-  {
-    "invoice_id": "INV0127",
-    "seller_gstin": "29KKKKK2020K2Z7",
-    "buyer_gstin": "36NNNNN5050N5Z1",
-    "amount": 116542,
-    "gst_amount": 20978,
-    "month": "Feb"
-  },
-  {
-    "invoice_id": "INV0128",
-    "seller_gstin": "09HHHHH8888H8Z3",
-    "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 89117,
-    "gst_amount": 16041,
-    "month": "Jun"
-  },
-  {
-    "invoice_id": "INV0129",
-    "seller_gstin": "06JJJJJ1010J1Z6",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 149943,
-    "gst_amount": 26990,
-    "month": "Mar"
-  },
-  {
-    "invoice_id": "INV0130",
-    "seller_gstin": "03IIIII9999I9Z4",
-    "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 50074,
-    "gst_amount": 9013,
-    "month": "May"
-  },
-  {
-    "invoice_id": "INV0131",
-    "seller_gstin": "27LLLLL3030L3Z8",
-    "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 64662,
-    "gst_amount": 11639,
-    "month": "Jan"
-  },
-  {
-    "invoice_id": "INV0132",
-    "seller_gstin": "27LLLLL3030L3Z8",
-    "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 81385,
-    "gst_amount": 14649,
-    "month": "Mar"
-  },
-  {
-    "invoice_id": "INV0133",
-    "seller_gstin": "24GGGGG7777G7Z2",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 60322,
-    "gst_amount": 10858,
-    "month": "May"
-  },
-  {
-    "invoice_id": "INV0134",
-    "seller_gstin": "09HHHHH8888H8Z3",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 59071,
-    "gst_amount": 10633,
-    "month": "Apr"
-  },
-  {
-    "invoice_id": "INV0135",
-    "seller_gstin": "03IIIII9999I9Z4",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 112296,
-    "gst_amount": 20213,
-    "month": "Jun"
-  },
-  {
-    "invoice_id": "INV0136",
     "seller_gstin": "03IIIII9999I9Z4",
     "buyer_gstin": "36NNNNN5050N5Z1",
     "amount": 129507,
     "gst_amount": 23311,
+    "invoice_date": "2026-05-14",
     "month": "May"
   },
   {
-    "invoice_id": "INV0137",
-    "seller_gstin": "33MMMMM4040M4Z9",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 148994,
-    "gst_amount": 26819,
-    "month": "May"
-  },
-  {
-    "invoice_id": "INV0138",
+    "invoice_id": "INV0114",
     "seller_gstin": "06JJJJJ1010J1Z6",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 102296,
-    "gst_amount": 18413,
+    "buyer_gstin": "29KKKKK2020K2Z7",
+    "amount": 140422,
+    "gst_amount": 25276,
+    "invoice_date": "2026-06-07",
+    "month": "Jun"
+  },
+  {
+    "invoice_id": "INV0115",
+    "seller_gstin": "29KKKKK2020K2Z7",
+    "buyer_gstin": "06JJJJJ1010J1Z6",
+    "amount": 135180,
+    "gst_amount": 24332,
+    "invoice_date": "2026-06-12",
+    "month": "Jun"
+  },
+  {
+    "invoice_id": "INV0116",
+    "seller_gstin": "36NNNNN5050N5Z1",
+    "buyer_gstin": "29KKKKK2020K2Z7",
+    "amount": 65860,
+    "gst_amount": 11855,
+    "invoice_date": "2026-04-08",
+    "month": "Apr"
+  },
+  {
+    "invoice_id": "INV0117",
+    "seller_gstin": "06JJJJJ1010J1Z6",
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 52757,
+    "gst_amount": 9496,
+    "invoice_date": "2026-03-19",
     "month": "Mar"
   },
   {
-    "invoice_id": "INV0139",
-    "seller_gstin": "27LLLLL3030L3Z8",
-    "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 109177,
-    "gst_amount": 19652,
-    "month": "May"
-  },
-  {
-    "invoice_id": "INV0140",
-    "seller_gstin": "09HHHHH8888H8Z3",
-    "buyer_gstin": "36NNNNN5050N5Z1",
-    "amount": 58392,
-    "gst_amount": 10511,
-    "month": "Feb"
-  },
-  {
-    "invoice_id": "INV0141",
-    "seller_gstin": "27LLLLL3030L3Z8",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 122603,
-    "gst_amount": 22069,
-    "month": "May"
-  },
-  {
-    "invoice_id": "INV0142",
+    "invoice_id": "INV0118",
     "seller_gstin": "06JJJJJ1010J1Z6",
     "buyer_gstin": "29KKKKK2020K2Z7",
     "amount": 50942,
     "gst_amount": 9170,
+    "invoice_date": "2026-02-03",
     "month": "Feb"
   },
   {
-    "invoice_id": "INV0143",
+    "invoice_id": "INV0119",
+    "seller_gstin": "24GGGGG7777G7Z2",
+    "buyer_gstin": "09HHHHH8888H8Z3",
+    "amount": 54117,
+    "gst_amount": 9741,
+    "invoice_date": "2026-01-28",
+    "month": "Jan"
+  },
+  {
+    "invoice_id": "INV0120",
+    "seller_gstin": "27LLLLL3030L3Z8",
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 81195,
+    "gst_amount": 14615,
+    "invoice_date": "2026-05-09",
+    "month": "May"
+  },
+  {
+    "invoice_id": "INV0121",
+    "seller_gstin": "36NNNNN5050N5Z1",
+    "buyer_gstin": "09HHHHH8888H8Z3",
+    "amount": 67342,
+    "gst_amount": 12122,
+    "invoice_date": "2026-05-24",
+    "month": "May"
+  },
+  {
+    "invoice_id": "INV0122",
+    "seller_gstin": "36NNNNN5050N5Z1",
+    "buyer_gstin": "09HHHHH8888H8Z3",
+    "amount": 103354,
+    "gst_amount": 18604,
+    "invoice_date": "2026-04-07",
+    "month": "Apr"
+  },
+  {
+    "invoice_id": "INV0123",
     "seller_gstin": "09HHHHH8888H8Z3",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 57716,
-    "gst_amount": 10389,
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 106498,
+    "gst_amount": 19170,
+    "invoice_date": "2026-06-12",
     "month": "Jun"
   },
   {
-    "invoice_id": "INV0144",
-    "seller_gstin": "06JJJJJ1010J1Z6",
+    "invoice_id": "INV0124",
+    "seller_gstin": "33MMMMM4040M4Z9",
+    "buyer_gstin": "06JJJJJ1010J1Z6",
+    "amount": 145561,
+    "gst_amount": 26201,
+    "invoice_date": "2026-04-02",
+    "month": "Apr"
+  },
+  {
+    "invoice_id": "INV0125",
+    "seller_gstin": "09HHHHH8888H8Z3",
     "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 93309,
-    "gst_amount": 16796,
+    "amount": 145448,
+    "gst_amount": 26181,
+    "invoice_date": "2026-04-11",
+    "month": "Apr"
+  },
+  {
+    "invoice_id": "INV0126",
+    "seller_gstin": "09HHHHH8888H8Z3",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 74931,
+    "gst_amount": 13488,
+    "invoice_date": "2026-02-18",
+    "month": "Feb"
+  },
+  {
+    "invoice_id": "INV0127",
+    "seller_gstin": "36NNNNN5050N5Z1",
+    "buyer_gstin": "09HHHHH8888H8Z3",
+    "amount": 74050,
+    "gst_amount": 13329,
+    "invoice_date": "2026-04-09",
+    "month": "Apr"
+  },
+  {
+    "invoice_id": "INV0128",
+    "seller_gstin": "36NNNNN5050N5Z1",
+    "buyer_gstin": "09HHHHH8888H8Z3",
+    "amount": 108082,
+    "gst_amount": 19455,
+    "invoice_date": "2026-01-26",
     "month": "Jan"
+  },
+  {
+    "invoice_id": "INV0129",
+    "seller_gstin": "09HHHHH8888H8Z3",
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 120855,
+    "gst_amount": 21754,
+    "invoice_date": "2026-06-27",
+    "month": "Jun"
+  },
+  {
+    "invoice_id": "INV0130",
+    "seller_gstin": "24GGGGG7777G7Z2",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 71798,
+    "gst_amount": 12924,
+    "invoice_date": "2026-02-14",
+    "month": "Feb"
+  },
+  {
+    "invoice_id": "INV0131",
+    "seller_gstin": "36NNNNN5050N5Z1",
+    "buyer_gstin": "06JJJJJ1010J1Z6",
+    "amount": 102565,
+    "gst_amount": 18462,
+    "invoice_date": "2026-02-02",
+    "month": "Feb"
+  },
+  {
+    "invoice_id": "INV0132",
+    "seller_gstin": "03IIIII9999I9Z4",
+    "buyer_gstin": "06JJJJJ1010J1Z6",
+    "amount": 101173,
+    "gst_amount": 18211,
+    "invoice_date": "2026-01-09",
+    "month": "Jan"
+  },
+  {
+    "invoice_id": "INV0133",
+    "seller_gstin": "36NNNNN5050N5Z1",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 141303,
+    "gst_amount": 25435,
+    "invoice_date": "2026-04-24",
+    "month": "Apr"
+  },
+  {
+    "invoice_id": "INV0134",
+    "seller_gstin": "36NNNNN5050N5Z1",
+    "buyer_gstin": "09HHHHH8888H8Z3",
+    "amount": 88890,
+    "gst_amount": 16000,
+    "invoice_date": "2026-02-07",
+    "month": "Feb"
+  },
+  {
+    "invoice_id": "INV0135",
+    "seller_gstin": "24GGGGG7777G7Z2",
+    "buyer_gstin": "29KKKKK2020K2Z7",
+    "amount": 121066,
+    "gst_amount": 21792,
+    "invoice_date": "2026-06-02",
+    "month": "Jun"
+  },
+  {
+    "invoice_id": "INV0136",
+    "seller_gstin": "27LLLLL3030L3Z8",
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 126569,
+    "gst_amount": 22782,
+    "invoice_date": "2026-01-16",
+    "month": "Jan"
+  },
+  {
+    "invoice_id": "INV0137",
+    "seller_gstin": "03IIIII9999I9Z4",
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 60500,
+    "gst_amount": 10890,
+    "invoice_date": "2026-05-28",
+    "month": "May"
+  },
+  {
+    "invoice_id": "INV0138",
+    "seller_gstin": "03IIIII9999I9Z4",
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 58907,
+    "gst_amount": 10603,
+    "invoice_date": "2026-05-22",
+    "month": "May"
+  },
+  {
+    "invoice_id": "INV0139",
+    "seller_gstin": "06JJJJJ1010J1Z6",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 124668,
+    "gst_amount": 22440,
+    "invoice_date": "2026-01-08",
+    "month": "Jan"
+  },
+  {
+    "invoice_id": "INV0140",
+    "seller_gstin": "24GGGGG7777G7Z2",
+    "buyer_gstin": "29KKKKK2020K2Z7",
+    "amount": 104948,
+    "gst_amount": 18891,
+    "invoice_date": "2026-01-22",
+    "month": "Jan"
+  },
+  {
+    "invoice_id": "INV0141",
+    "seller_gstin": "27LLLLL3030L3Z8",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 137782,
+    "gst_amount": 24801,
+    "invoice_date": "2026-02-23",
+    "month": "Feb"
+  },
+  {
+    "invoice_id": "INV0142",
+    "seller_gstin": "27LLLLL3030L3Z8",
+    "buyer_gstin": "09HHHHH8888H8Z3",
+    "amount": 101876,
+    "gst_amount": 18338,
+    "invoice_date": "2026-03-05",
+    "month": "Mar"
+  },
+  {
+    "invoice_id": "INV0143",
+    "seller_gstin": "29KKKKK2020K2Z7",
+    "buyer_gstin": "06JJJJJ1010J1Z6",
+    "amount": 148548,
+    "gst_amount": 26739,
+    "invoice_date": "2026-03-03",
+    "month": "Mar"
+  },
+  {
+    "invoice_id": "INV0144",
+    "seller_gstin": "24GGGGG7777G7Z2",
+    "buyer_gstin": "06JJJJJ1010J1Z6",
+    "amount": 123792,
+    "gst_amount": 22283,
+    "invoice_date": "2026-05-04",
+    "month": "May"
   },
   {
     "invoice_id": "INV0145",
     "seller_gstin": "09HHHHH8888H8Z3",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 86500,
-    "gst_amount": 15570,
+    "amount": 116307,
+    "gst_amount": 20935,
+    "invoice_date": "2026-02-09",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0146",
-    "seller_gstin": "36NNNNN5050N5Z1",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 67342,
-    "gst_amount": 12122,
-    "month": "May"
+    "seller_gstin": "03IIIII9999I9Z4",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 82018,
+    "gst_amount": 14763,
+    "invoice_date": "2026-01-12",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0147",
-    "seller_gstin": "36NNNNN5050N5Z1",
+    "seller_gstin": "29KKKKK2020K2Z7",
     "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 103354,
-    "gst_amount": 18604,
+    "amount": 121200,
+    "gst_amount": 21816,
+    "invoice_date": "2026-04-23",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0148",
-    "seller_gstin": "06JJJJJ1010J1Z6",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 136374,
-    "gst_amount": 24547,
-    "month": "Jan"
+    "seller_gstin": "29KKKKK2020K2Z7",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 119329,
+    "gst_amount": 21479,
+    "invoice_date": "2026-06-01",
+    "month": "Jun"
   },
   {
     "invoice_id": "INV0149",
-    "seller_gstin": "33MMMMM4040M4Z9",
-    "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 103883,
-    "gst_amount": 18699,
-    "month": "Apr"
+    "seller_gstin": "29KKKKK2020K2Z7",
+    "buyer_gstin": "27LLLLL3030L3Z8",
+    "amount": 67601,
+    "gst_amount": 12168,
+    "invoice_date": "2026-01-09",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0150",
-    "seller_gstin": "36NNNNN5050N5Z1",
-    "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 57100,
-    "gst_amount": 10278,
+    "seller_gstin": "09HHHHH8888H8Z3",
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 122512,
+    "gst_amount": 22052,
+    "invoice_date": "2026-06-05",
     "month": "Jun"
   },
   {
     "invoice_id": "INV0151",
-    "seller_gstin": "09HHHHH8888H8Z3",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 145448,
-    "gst_amount": 26181,
-    "month": "Apr"
+    "seller_gstin": "29KKKKK2020K2Z7",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 77607,
+    "gst_amount": 13969,
+    "invoice_date": "2026-05-23",
+    "month": "May"
   },
   {
     "invoice_id": "INV0152",
     "seller_gstin": "27LLLLL3030L3Z8",
-    "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 82591,
-    "gst_amount": 14866,
-    "month": "Jan"
+    "buyer_gstin": "09HHHHH8888H8Z3",
+    "amount": 133130,
+    "gst_amount": 23963,
+    "invoice_date": "2026-06-28",
+    "month": "Jun"
   },
   {
     "invoice_id": "INV0153",
-    "seller_gstin": "06JJJJJ1010J1Z6",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 108800,
-    "gst_amount": 19584,
-    "month": "May"
+    "seller_gstin": "29KKKKK2020K2Z7",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 82914,
+    "gst_amount": 14925,
+    "invoice_date": "2026-04-28",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0154",
-    "seller_gstin": "03IIIII9999I9Z4",
-    "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 86509,
-    "gst_amount": 15572,
-    "month": "Feb"
+    "seller_gstin": "24GGGGG7777G7Z2",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 105518,
+    "gst_amount": 18993,
+    "invoice_date": "2026-06-27",
+    "month": "Jun"
   },
   {
     "invoice_id": "INV0155",
-    "seller_gstin": "36NNNNN5050N5Z1",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 108082,
-    "gst_amount": 19455,
+    "seller_gstin": "29KKKKK2020K2Z7",
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 93719,
+    "gst_amount": 16869,
+    "invoice_date": "2026-01-25",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0156",
-    "seller_gstin": "09HHHHH8888H8Z3",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 120855,
-    "gst_amount": 21754,
-    "month": "Jun"
+    "seller_gstin": "03IIIII9999I9Z4",
+    "buyer_gstin": "27LLLLL3030L3Z8",
+    "amount": 71178,
+    "gst_amount": 12812,
+    "invoice_date": "2026-03-24",
+    "month": "Mar"
   },
   {
     "invoice_id": "INV0157",
-    "seller_gstin": "24GGGGG7777G7Z2",
-    "buyer_gstin": "36NNNNN5050N5Z1",
-    "amount": 71798,
-    "gst_amount": 12924,
-    "month": "Feb"
-  },
-  {
-    "invoice_id": "INV0158",
-    "seller_gstin": "33MMMMM4040M4Z9",
-    "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 78016,
-    "gst_amount": 14043,
-    "month": "Apr"
-  },
-  {
-    "invoice_id": "INV0159",
-    "seller_gstin": "33MMMMM4040M4Z9",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 99672,
-    "gst_amount": 17941,
-    "month": "Feb"
-  },
-  {
-    "invoice_id": "INV0160",
-    "seller_gstin": "24GGGGG7777G7Z2",
-    "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 109638,
-    "gst_amount": 19735,
-    "month": "Mar"
-  },
-  {
-    "invoice_id": "INV0161",
-    "seller_gstin": "29KKKKK2020K2Z7",
-    "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 145748,
-    "gst_amount": 26235,
+    "seller_gstin": "36NNNNN5050N5Z1",
+    "buyer_gstin": "29KKKKK2020K2Z7",
+    "amount": 106057,
+    "gst_amount": 19090,
+    "invoice_date": "2026-06-18",
     "month": "Jun"
   },
   {
-    "invoice_id": "INV0162",
-    "seller_gstin": "36NNNNN5050N5Z1",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 88890,
-    "gst_amount": 16000,
-    "month": "Feb"
-  },
-  {
-    "invoice_id": "INV0163",
-    "seller_gstin": "06JJJJJ1010J1Z6",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 146434,
-    "gst_amount": 26358,
-    "month": "May"
-  },
-  {
-    "invoice_id": "INV0164",
+    "invoice_id": "INV0158",
     "seller_gstin": "24GGGGG7777G7Z2",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 57492,
-    "gst_amount": 10349,
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 140573,
+    "gst_amount": 25303,
+    "invoice_date": "2026-01-05",
+    "month": "Jan"
+  },
+  {
+    "invoice_id": "INV0159",
+    "seller_gstin": "24GGGGG7777G7Z2",
+    "buyer_gstin": "33MMMMM4040M4Z9",
+    "amount": 126350,
+    "gst_amount": 22743,
+    "invoice_date": "2026-03-18",
     "month": "Mar"
   },
   {
-    "invoice_id": "INV0165",
-    "seller_gstin": "24GGGGG7777G7Z2",
+    "invoice_id": "INV0160",
+    "seller_gstin": "03IIIII9999I9Z4",
+    "buyer_gstin": "06JJJJJ1010J1Z6",
+    "amount": 55482,
+    "gst_amount": 9987,
+    "invoice_date": "2026-02-10",
+    "month": "Feb"
+  },
+  {
+    "invoice_id": "INV0161",
+    "seller_gstin": "27LLLLL3030L3Z8",
+    "buyer_gstin": "33MMMMM4040M4Z9",
+    "amount": 96898,
+    "gst_amount": 17442,
+    "invoice_date": "2026-01-07",
+    "month": "Jan"
+  },
+  {
+    "invoice_id": "INV0162",
+    "seller_gstin": "06JJJJJ1010J1Z6",
+    "buyer_gstin": "27LLLLL3030L3Z8",
+    "amount": 96357,
+    "gst_amount": 17344,
+    "invoice_date": "2026-01-25",
+    "month": "Jan"
+  },
+  {
+    "invoice_id": "INV0163",
+    "seller_gstin": "33MMMMM4040M4Z9",
     "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 115909,
-    "gst_amount": 20864,
-    "month": "Apr"
+    "amount": 70257,
+    "gst_amount": 12646,
+    "invoice_date": "2026-06-08",
+    "month": "Jun"
+  },
+  {
+    "invoice_id": "INV0164",
+    "seller_gstin": "03IIIII9999I9Z4",
+    "buyer_gstin": "33MMMMM4040M4Z9",
+    "amount": 104040,
+    "gst_amount": 18727,
+    "invoice_date": "2026-02-01",
+    "month": "Feb"
+  },
+  {
+    "invoice_id": "INV0165",
+    "seller_gstin": "03IIIII9999I9Z4",
+    "buyer_gstin": "27LLLLL3030L3Z8",
+    "amount": 103964,
+    "gst_amount": 18714,
+    "invoice_date": "2026-03-26",
+    "month": "Mar"
   },
   {
     "invoice_id": "INV0166",
-    "seller_gstin": "03IIIII9999I9Z4",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 60500,
-    "gst_amount": 10890,
-    "month": "May"
+    "seller_gstin": "06JJJJJ1010J1Z6",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 141917,
+    "gst_amount": 25545,
+    "invoice_date": "2026-02-04",
+    "month": "Feb"
   },
   {
     "invoice_id": "INV0167",
-    "seller_gstin": "03IIIII9999I9Z4",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 58907,
-    "gst_amount": 10603,
-    "month": "May"
+    "seller_gstin": "33MMMMM4040M4Z9",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 111694,
+    "gst_amount": 20105,
+    "invoice_date": "2026-01-08",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0168",
     "seller_gstin": "06JJJJJ1010J1Z6",
-    "buyer_gstin": "36NNNNN5050N5Z1",
-    "amount": 124668,
-    "gst_amount": 22440,
-    "month": "Jan"
+    "buyer_gstin": "33MMMMM4040M4Z9",
+    "amount": 95830,
+    "gst_amount": 17249,
+    "invoice_date": "2026-04-10",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0169",
     "seller_gstin": "06JJJJJ1010J1Z6",
-    "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 55209,
-    "gst_amount": 9938,
-    "month": "May"
+    "buyer_gstin": "09HHHHH8888H8Z3",
+    "amount": 136511,
+    "gst_amount": 24572,
+    "invoice_date": "2026-01-07",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0170",
-    "seller_gstin": "09HHHHH8888H8Z3",
-    "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 126503,
-    "gst_amount": 22771,
-    "month": "Jun"
+    "seller_gstin": "33MMMMM4040M4Z9",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 59099,
+    "gst_amount": 10638,
+    "invoice_date": "2026-03-25",
+    "month": "Mar"
   },
   {
     "invoice_id": "INV0171",
-    "seller_gstin": "27LLLLL3030L3Z8",
+    "seller_gstin": "29KKKKK2020K2Z7",
     "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 137782,
-    "gst_amount": 24801,
-    "month": "Feb"
+    "amount": 116768,
+    "gst_amount": 21018,
+    "invoice_date": "2026-06-13",
+    "month": "Jun"
   },
   {
     "invoice_id": "INV0172",
     "seller_gstin": "27LLLLL3030L3Z8",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 101876,
-    "gst_amount": 18338,
-    "month": "Mar"
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 84237,
+    "gst_amount": 15163,
+    "invoice_date": "2026-01-06",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0173",
-    "seller_gstin": "32PPPPP7070P7Z3",
-    "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 91441,
-    "gst_amount": 16459,
-    "month": "Apr"
+    "seller_gstin": "03SSSSS1122S1Z7",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 64208,
+    "gst_amount": 11557,
+    "invoice_date": "2026-01-20",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0174",
-    "seller_gstin": "07OOOOO6060O6Z2",
-    "buyer_gstin": "29AAAAA1111A1Z5",
-    "amount": 131416,
-    "gst_amount": 23655,
-    "month": "Apr"
+    "seller_gstin": "09RRRRR9090R9Z5",
+    "buyer_gstin": "27LLLLL3030L3Z8",
+    "amount": 91114,
+    "gst_amount": 16401,
+    "invoice_date": "2026-06-14",
+    "month": "Jun"
   },
   {
     "invoice_id": "INV0175",
     "seller_gstin": "03SSSSS1122S1Z7",
-    "buyer_gstin": "33DDDDD4444D4Z8",
-    "amount": 120468,
-    "gst_amount": 21684,
+    "buyer_gstin": "24QQQQQ8080Q8Z4",
+    "amount": 100488,
+    "gst_amount": 18088,
+    "invoice_date": "2026-01-19",
     "month": "Jan"
   },
   {
     "invoice_id": "INV0176",
     "seller_gstin": "32PPPPP7070P7Z3",
-    "buyer_gstin": "09RRRRR9090R9Z5",
-    "amount": 67361,
-    "gst_amount": 12125,
-    "month": "Mar"
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 142901,
+    "gst_amount": 25722,
+    "invoice_date": "2026-01-14",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0177",
-    "seller_gstin": "24QQQQQ8080Q8Z4",
-    "buyer_gstin": "07CCCCC3333C3Z7",
-    "amount": 98434,
-    "gst_amount": 17718,
-    "month": "Feb"
+    "seller_gstin": "07OOOOO6060O6Z2",
+    "buyer_gstin": "09RRRRR9090R9Z5",
+    "amount": 140027,
+    "gst_amount": 25205,
+    "invoice_date": "2026-05-24",
+    "month": "May"
   },
   {
     "invoice_id": "INV0178",
-    "seller_gstin": "24QQQQQ8080Q8Z4",
-    "buyer_gstin": "32FFFFF6666F6Z1",
-    "amount": 121200,
-    "gst_amount": 21816,
-    "month": "Apr"
+    "seller_gstin": "06TTTTT2233T2Z8",
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 106531,
+    "gst_amount": 19176,
+    "invoice_date": "2026-03-03",
+    "month": "Mar"
   },
   {
     "invoice_id": "INV0179",
     "seller_gstin": "06TTTTT2233T2Z8",
-    "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 135717,
-    "gst_amount": 24429,
+    "buyer_gstin": "29KKKKK2020K2Z7",
+    "amount": 91145,
+    "gst_amount": 16406,
+    "invoice_date": "2026-05-22",
     "month": "May"
   },
   {
     "invoice_id": "INV0180",
-    "seller_gstin": "03SSSSS1122S1Z7",
-    "buyer_gstin": "29AAAAA1111A1Z5",
-    "amount": 122692,
-    "gst_amount": 22085,
-    "month": "Jun"
+    "seller_gstin": "07OOOOO6060O6Z2",
+    "buyer_gstin": "06JJJJJ1010J1Z6",
+    "amount": 90538,
+    "gst_amount": 16297,
+    "invoice_date": "2026-05-22",
+    "month": "May"
   },
   {
     "invoice_id": "INV0181",
-    "seller_gstin": "24QQQQQ8080Q8Z4",
-    "buyer_gstin": "33DDDDD4444D4Z8",
-    "amount": 84664,
-    "gst_amount": 15240,
-    "month": "Feb"
+    "seller_gstin": "09RRRRR9090R9Z5",
+    "buyer_gstin": "29KKKKK2020K2Z7",
+    "amount": 141384,
+    "gst_amount": 25449,
+    "invoice_date": "2026-04-10",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0182",
-    "seller_gstin": "07OOOOO6060O6Z2",
-    "buyer_gstin": "33DDDDD4444D4Z8",
-    "amount": 122512,
-    "gst_amount": 22052,
-    "month": "Jun"
-  },
-  {
-    "invoice_id": "INV0183",
-    "seller_gstin": "32PPPPP7070P7Z3",
-    "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 129276,
-    "gst_amount": 23270,
-    "month": "Mar"
-  },
-  {
-    "invoice_id": "INV0184",
-    "seller_gstin": "32PPPPP7070P7Z3",
-    "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 140111,
-    "gst_amount": 25220,
+    "seller_gstin": "03SSSSS1122S1Z7",
+    "buyer_gstin": "36EEEEE5555E5Z9",
+    "amount": 105108,
+    "gst_amount": 18919,
+    "invoice_date": "2026-02-22",
     "month": "Feb"
   },
   {
+    "invoice_id": "INV0183",
+    "seller_gstin": "09RRRRR9090R9Z5",
+    "buyer_gstin": "32FFFFF6666F6Z1",
+    "amount": 124593,
+    "gst_amount": 22427,
+    "invoice_date": "2026-05-10",
+    "month": "May"
+  },
+  {
+    "invoice_id": "INV0184",
+    "seller_gstin": "09RRRRR9090R9Z5",
+    "buyer_gstin": "03SSSSS1122S1Z7",
+    "amount": 89829,
+    "gst_amount": 16169,
+    "invoice_date": "2026-01-10",
+    "month": "Jan"
+  },
+  {
     "invoice_id": "INV0185",
-    "seller_gstin": "06TTTTT2233T2Z8",
-    "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 114032,
-    "gst_amount": 20526,
+    "seller_gstin": "32PPPPP7070P7Z3",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 129516,
+    "gst_amount": 23313,
+    "invoice_date": "2026-05-21",
     "month": "May"
   },
   {
     "invoice_id": "INV0186",
     "seller_gstin": "24QQQQQ8080Q8Z4",
-    "buyer_gstin": "27BBBBB2222B2Z6",
-    "amount": 133136,
-    "gst_amount": 23964,
-    "month": "Jan"
+    "buyer_gstin": "07OOOOO6060O6Z2",
+    "amount": 107954,
+    "gst_amount": 19432,
+    "invoice_date": "2026-04-22",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0187",
-    "seller_gstin": "09RRRRR9090R9Z5",
-    "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 50464,
-    "gst_amount": 9084,
-    "month": "Jan"
+    "seller_gstin": "32PPPPP7070P7Z3",
+    "buyer_gstin": "09RRRRR9090R9Z5",
+    "amount": 146463,
+    "gst_amount": 26363,
+    "invoice_date": "2026-04-06",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0188",
-    "seller_gstin": "24QQQQQ8080Q8Z4",
-    "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 84335,
-    "gst_amount": 15180,
-    "month": "Jun"
+    "seller_gstin": "06TTTTT2233T2Z8",
+    "buyer_gstin": "07CCCCC3333C3Z7",
+    "amount": 117561,
+    "gst_amount": 21161,
+    "invoice_date": "2026-03-22",
+    "month": "Mar"
   },
   {
     "invoice_id": "INV0189",
-    "seller_gstin": "32PPPPP7070P7Z3",
-    "buyer_gstin": "07OOOOO6060O6Z2",
-    "amount": 142493,
-    "gst_amount": 25649,
-    "month": "May"
+    "seller_gstin": "06TTTTT2233T2Z8",
+    "buyer_gstin": "29KKKKK2020K2Z7",
+    "amount": 148453,
+    "gst_amount": 26722,
+    "invoice_date": "2026-01-08",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0190",
-    "seller_gstin": "09RRRRR9090R9Z5",
-    "buyer_gstin": "03SSSSS1122S1Z7",
-    "amount": 64663,
-    "gst_amount": 11639,
-    "month": "Jan"
+    "seller_gstin": "06TTTTT2233T2Z8",
+    "buyer_gstin": "06JJJJJ1010J1Z6",
+    "amount": 76100,
+    "gst_amount": 13698,
+    "invoice_date": "2026-02-05",
+    "month": "Feb"
   },
   {
     "invoice_id": "INV0191",
     "seller_gstin": "07OOOOO6060O6Z2",
-    "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 54722,
-    "gst_amount": 9850,
-    "month": "May"
+    "buyer_gstin": "27BBBBB2222B2Z6",
+    "amount": 112277,
+    "gst_amount": 20210,
+    "invoice_date": "2026-02-20",
+    "month": "Feb"
   },
   {
     "invoice_id": "INV0192",
-    "seller_gstin": "24QQQQQ8080Q8Z4",
-    "buyer_gstin": "06TTTTT2233T2Z8",
-    "amount": 69410,
-    "gst_amount": 12494,
-    "month": "May"
+    "seller_gstin": "07OOOOO6060O6Z2",
+    "buyer_gstin": "32PPPPP7070P7Z3",
+    "amount": 132544,
+    "gst_amount": 23858,
+    "invoice_date": "2026-04-19",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0193",
-    "seller_gstin": "09RRRRR9090R9Z5",
-    "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 90404,
-    "gst_amount": 16273,
-    "month": "Jan"
+    "seller_gstin": "32PPPPP7070P7Z3",
+    "buyer_gstin": "33MMMMM4040M4Z9",
+    "amount": 102383,
+    "gst_amount": 18429,
+    "invoice_date": "2026-04-08",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0194",
-    "seller_gstin": "24QQQQQ8080Q8Z4",
-    "buyer_gstin": "27BBBBB2222B2Z6",
-    "amount": 77535,
-    "gst_amount": 13956,
-    "month": "Mar"
+    "seller_gstin": "32PPPPP7070P7Z3",
+    "buyer_gstin": "29AAAAA1111A1Z5",
+    "amount": 105724,
+    "gst_amount": 19030,
+    "invoice_date": "2026-01-08",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0195",
-    "seller_gstin": "06TTTTT2233T2Z8",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 63473,
-    "gst_amount": 11425,
-    "month": "Jun"
+    "seller_gstin": "32PPPPP7070P7Z3",
+    "buyer_gstin": "09RRRRR9090R9Z5",
+    "amount": 56582,
+    "gst_amount": 10185,
+    "invoice_date": "2026-04-18",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0196",
-    "seller_gstin": "24QQQQQ8080Q8Z4",
-    "buyer_gstin": "03SSSSS1122S1Z7",
-    "amount": 131351,
-    "gst_amount": 23643,
+    "seller_gstin": "32PPPPP7070P7Z3",
+    "buyer_gstin": "33DDDDD4444D4Z8",
+    "amount": 67477,
+    "gst_amount": 12146,
+    "invoice_date": "2026-04-26",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0197",
-    "seller_gstin": "06TTTTT2233T2Z8",
-    "buyer_gstin": "36EEEEE5555E5Z9",
-    "amount": 71299,
-    "gst_amount": 12834,
-    "month": "Feb"
+    "seller_gstin": "09RRRRR9090R9Z5",
+    "buyer_gstin": "24QQQQQ8080Q8Z4",
+    "amount": 128047,
+    "gst_amount": 23048,
+    "invoice_date": "2026-05-11",
+    "month": "May"
   },
   {
     "invoice_id": "INV0198",
-    "seller_gstin": "32PPPPP7070P7Z3",
-    "buyer_gstin": "36NNNNN5050N5Z1",
-    "amount": 73509,
-    "gst_amount": 13232,
-    "month": "Jan"
+    "seller_gstin": "09RRRRR9090R9Z5",
+    "buyer_gstin": "24QQQQQ8080Q8Z4",
+    "amount": 121810,
+    "gst_amount": 21926,
+    "invoice_date": "2026-04-15",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0199",
-    "seller_gstin": "06TTTTT2233T2Z8",
-    "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 137806,
-    "gst_amount": 24805,
+    "seller_gstin": "32PPPPP7070P7Z3",
+    "buyer_gstin": "24QQQQQ8080Q8Z4",
+    "amount": 83972,
+    "gst_amount": 15115,
+    "invoice_date": "2026-04-25",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0200",
-    "seller_gstin": "06TTTTT2233T2Z8",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 70866,
-    "gst_amount": 12756,
-    "month": "Mar"
+    "seller_gstin": "32PPPPP7070P7Z3",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 113517,
+    "gst_amount": 20433,
+    "invoice_date": "2026-05-21",
+    "month": "May"
   },
   {
     "invoice_id": "INV0201",
-    "seller_gstin": "06TTTTT2233T2Z8",
-    "buyer_gstin": "33DDDDD4444D4Z8",
-    "amount": 55075,
-    "gst_amount": 9914,
+    "seller_gstin": "32PPPPP7070P7Z3",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 60155,
+    "gst_amount": 10828,
+    "invoice_date": "2026-04-23",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0202",
-    "seller_gstin": "09RRRRR9090R9Z5",
+    "seller_gstin": "24QQQQQ8080Q8Z4",
     "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 110332,
-    "gst_amount": 19860,
-    "month": "Feb"
+    "amount": 94020,
+    "gst_amount": 16924,
+    "invoice_date": "2026-03-11",
+    "month": "Mar"
   },
   {
     "invoice_id": "INV0203",
-    "seller_gstin": "07CCCCC3333C3Z7",
-    "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 79219,
-    "gst_amount": 14259,
+    "seller_gstin": "29AAAAA1111A1Z5",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 80311,
+    "gst_amount": 14456,
+    "invoice_date": "2026-02-13",
     "month": "Feb"
   },
   {
     "invoice_id": "INV0204",
-    "seller_gstin": "29AAAAA1111A1Z5",
+    "seller_gstin": "27BBBBB2222B2Z6",
     "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 93025,
-    "gst_amount": 16744,
-    "month": "Apr"
+    "amount": 104377,
+    "gst_amount": 18788,
+    "invoice_date": "2026-01-14",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0205",
     "seller_gstin": "07CCCCC3333C3Z7",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 96025,
-    "gst_amount": 17284,
-    "month": "Mar"
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 58161,
+    "gst_amount": 10469,
+    "invoice_date": "2026-04-07",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0206",
     "seller_gstin": "33DDDDD4444D4Z8",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 65118,
-    "gst_amount": 11721,
-    "month": "Jan"
-  },
-  {
-    "invoice_id": "INV0207",
-    "seller_gstin": "07CCCCC3333C3Z7",
-    "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 84795,
-    "gst_amount": 15263,
+    "buyer_gstin": "33MMMMM4040M4Z9",
+    "amount": 141163,
+    "gst_amount": 25409,
+    "invoice_date": "2026-05-01",
     "month": "May"
   },
   {
+    "invoice_id": "INV0207",
+    "seller_gstin": "33DDDDD4444D4Z8",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 96105,
+    "gst_amount": 17299,
+    "invoice_date": "2026-01-10",
+    "month": "Jan"
+  },
+  {
     "invoice_id": "INV0208",
-    "seller_gstin": "29AAAAA1111A1Z5",
-    "buyer_gstin": "09HHHHH8888H8Z3",
-    "amount": 106959,
-    "gst_amount": 19253,
+    "seller_gstin": "33DDDDD4444D4Z8",
+    "buyer_gstin": "33MMMMM4040M4Z9",
+    "amount": 147978,
+    "gst_amount": 26636,
+    "invoice_date": "2026-05-24",
     "month": "May"
   },
   {
     "invoice_id": "INV0209",
-    "seller_gstin": "07CCCCC3333C3Z7",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 129457,
-    "gst_amount": 23302,
-    "month": "Apr"
+    "seller_gstin": "27BBBBB2222B2Z6",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 85774,
+    "gst_amount": 15439,
+    "invoice_date": "2026-02-14",
+    "month": "Feb"
   },
   {
     "invoice_id": "INV0210",
-    "seller_gstin": "29AAAAA1111A1Z5",
-    "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 74914,
-    "gst_amount": 13485,
-    "month": "May"
+    "seller_gstin": "33DDDDD4444D4Z8",
+    "buyer_gstin": "24GGGGG7777G7Z2",
+    "amount": 94057,
+    "gst_amount": 16930,
+    "invoice_date": "2026-04-22",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0211",
-    "seller_gstin": "07CCCCC3333C3Z7",
-    "buyer_gstin": "24GGGGG7777G7Z2",
-    "amount": 107154,
-    "gst_amount": 19288,
-    "month": "Jun"
+    "seller_gstin": "33DDDDD4444D4Z8",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 66728,
+    "gst_amount": 12011,
+    "invoice_date": "2026-04-20",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0212",
     "seller_gstin": "29AAAAA1111A1Z5",
-    "buyer_gstin": "06JJJJJ1010J1Z6",
-    "amount": 106531,
-    "gst_amount": 19176,
-    "month": "Mar"
+    "buyer_gstin": "33MMMMM4040M4Z9",
+    "amount": 123975,
+    "gst_amount": 22316,
+    "invoice_date": "2026-05-22",
+    "month": "May"
   },
   {
     "invoice_id": "INV0213",
     "seller_gstin": "29AAAAA1111A1Z5",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 91145,
-    "gst_amount": 16406,
-    "month": "May"
+    "buyer_gstin": "09HHHHH8888H8Z3",
+    "amount": 106179,
+    "gst_amount": 19112,
+    "invoice_date": "2026-06-05",
+    "month": "Jun"
   },
   {
     "invoice_id": "INV0214",
-    "seller_gstin": "29AAAAA1111A1Z5",
-    "buyer_gstin": "29KKKKK2020K2Z7",
-    "amount": 90538,
-    "gst_amount": 16297,
-    "month": "May"
+    "seller_gstin": "33DDDDD4444D4Z8",
+    "buyer_gstin": "03IIIII9999I9Z4",
+    "amount": 84099,
+    "gst_amount": 15138,
+    "invoice_date": "2026-01-13",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0215",
-    "seller_gstin": "33DDDDD4444D4Z8",
-    "buyer_gstin": "27LLLLL3030L3Z8",
-    "amount": 141384,
-    "gst_amount": 25449,
+    "seller_gstin": "07CCCCC3333C3Z7",
+    "buyer_gstin": "06JJJJJ1010J1Z6",
+    "amount": 92840,
+    "gst_amount": 16711,
+    "invoice_date": "2026-04-11",
     "month": "Apr"
   },
   {
     "invoice_id": "INV0216",
-    "seller_gstin": "07CCCCC3333C3Z7",
-    "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 105108,
-    "gst_amount": 18919,
-    "month": "Feb"
+    "seller_gstin": "33DDDDD4444D4Z8",
+    "buyer_gstin": "29KKKKK2020K2Z7",
+    "amount": 83065,
+    "gst_amount": 14952,
+    "invoice_date": "2026-04-27",
+    "month": "Apr"
   },
   {
     "invoice_id": "INV0217",
-    "seller_gstin": "33DDDDD4444D4Z8",
-    "buyer_gstin": "03IIIII9999I9Z4",
-    "amount": 124593,
-    "gst_amount": 22427,
-    "month": "May"
+    "seller_gstin": "29AAAAA1111A1Z5",
+    "buyer_gstin": "36NNNNN5050N5Z1",
+    "amount": 148176,
+    "gst_amount": 26672,
+    "invoice_date": "2026-01-18",
+    "month": "Jan"
   },
   {
     "invoice_id": "INV0218",
-    "seller_gstin": "07CCCCC3333C3Z7",
-    "buyer_gstin": "33MMMMM4040M4Z9",
-    "amount": 50053,
-    "gst_amount": 9010,
-    "month": "May"
+    "seller_gstin": "29AAAAA1111A1Z5",
+    "buyer_gstin": "27LLLLL3030L3Z8",
+    "amount": 135215,
+    "gst_amount": 24339,
+    "invoice_date": "2026-02-03",
+    "month": "Feb"
   }
 ]

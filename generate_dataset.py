@@ -13,6 +13,8 @@ Then import with:
 import json
 import random
 import os
+import hashlib
+from datetime import date
 
 # ── Seed for reproducibility ────────────────────────────────────────
 random.seed(42)
@@ -30,6 +32,15 @@ STATES = [
 ]
 
 MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+
+MONTH_TO_NUM = {
+    "Jan": 1,
+    "Feb": 2,
+    "Mar": 3,
+    "Apr": 4,
+    "May": 5,
+    "Jun": 6,
+}
 
 
 # ────────────────────────────────────────────────────────────────────
@@ -86,6 +97,13 @@ MEDIUM_RISK  = GSTINS[14:]   # Partially compliant
 # 2. INVOICES
 # ────────────────────────────────────────────────────────────────────
 
+def deterministic_invoice_date(inv_id, month, year=2026):
+    m = MONTH_TO_NUM.get(month, 1)
+    # Derive day from invoice id so dates are stable and do not affect global RNG order.
+    digest = hashlib.sha256(str(inv_id).encode("utf-8")).hexdigest()
+    day = (int(digest[:8], 16) % 28) + 1
+    return date(year, m, day).isoformat()
+
 def make_invoice(inv_id, seller, buyer, month, amount=None):
     if amount is None:
         amount = random.randint(50_000, 1_50_000)
@@ -96,6 +114,7 @@ def make_invoice(inv_id, seller, buyer, month, amount=None):
         "buyer_gstin":  buyer,
         "amount":       amount,
         "gst_amount":   gst,
+        "invoice_date": deterministic_invoice_date(inv_id, month),
         "month":        month,
     }
 

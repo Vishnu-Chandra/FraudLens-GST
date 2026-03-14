@@ -15,16 +15,20 @@ function ChartSkeleton() {
 
 export default function InvoiceMatchChart() {
   const [data, setData] = useState(null);
+  const [total, setTotal] = useState(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     dashboardApi.getInvoiceMatch().then((raw) => {
-      setData([
+      const rows = [
         { name: 'Matched Invoices', value: raw.matched ?? 0 },
         { name: 'Missing in GSTR-1', value: raw.missingGstr1 ?? 0 },
         { name: 'Missing e-Way Bill', value: raw.missingEwayBill ?? 0 },
         { name: 'Fully Verified', value: raw.fullyVerified ?? 0 },
-      ].filter((d) => d.value > 0));
+      ].filter((d) => d.value > 0);
+
+      setTotal(rows.reduce((sum, row) => sum + row.value, 0));
+      setData(rows);
     }).finally(() => setLoading(false));
   }, []);
 
@@ -55,7 +59,12 @@ export default function InvoiceMatchChart() {
                 <Cell key={i} fill={COLORS[i % COLORS.length]} />
               ))}
             </Pie>
-            <Tooltip formatter={(v) => [v, '']} />
+            <Tooltip
+              formatter={(value) => {
+                const percentage = total > 0 ? ((Number(value) / total) * 100).toFixed(1) : '0.0';
+                return [`${value} invoices (${percentage}%)`, ''];
+              }}
+            />
             <Legend />
           </PieChart>
         </ResponsiveContainer>

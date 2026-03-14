@@ -1,10 +1,32 @@
 const mongoose = require('mongoose');
 
+function mapTypeToSource(type) {
+  switch (type) {
+    case 'GRAPH_ANALYSIS':
+      return 'GRAPH_ANALYSIS';
+    case 'AI_PREDICTION':
+      return 'AI_MODEL';
+    case 'RULE_BASED':
+    case 'MANUAL':
+    default:
+      return 'RULE_ENGINE';
+  }
+}
+
 const anomalySchema = new mongoose.Schema({
   type: {
     type: String,
     enum: ['RULE_BASED', 'GRAPH_ANALYSIS', 'AI_PREDICTION', 'MANUAL'],
     required: true,
+  },
+  source: {
+    type: String,
+    enum: ['RULE_ENGINE', 'GRAPH_ANALYSIS', 'AI_MODEL'],
+    required: true,
+    default: function defaultSource() {
+      return mapTypeToSource(this.type);
+    },
+    index: true,
   },
   businessGstin: {
     type: String,
@@ -94,5 +116,6 @@ const anomalySchema = new mongoose.Schema({
 anomalySchema.index({ detectedAt: -1 });
 anomalySchema.index({ riskLevel: 1, status: 1 });
 anomalySchema.index({ type: 1, status: 1 });
+anomalySchema.index({ source: 1, status: 1 });
 
 module.exports = mongoose.model('Anomaly', anomalySchema);

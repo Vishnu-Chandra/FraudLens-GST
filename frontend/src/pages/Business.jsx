@@ -137,6 +137,26 @@ export default function Business() {
   const [selectedInvoice, setSelectedInvoice] = useState(null);
   const [selectedNodeId, setSelectedNodeId] = useState(null);
 
+  const [reconModal, setReconModal] = useState(false);
+  const [reconData, setReconData] = useState([]);
+  const [reconLoading, setReconLoading] = useState(false);
+  const [reconError, setReconError] = useState('');
+
+  async function openReconReport() {
+    setReconModal(true);
+    setReconError('');
+    if (reconData.length > 0) return;
+    try {
+      setReconLoading(true);
+      const res = await businessApi.getReconciliationReport(gstin);
+      setReconData(Array.isArray(res?.report) ? res.report : []);
+    } catch {
+      setReconError('Failed to load reconciliation report.');
+    } finally {
+      setReconLoading(false);
+    }
+  }
+
   useEffect(() => {
     let alive = true;
     setLoading(true);
@@ -561,7 +581,7 @@ export default function Business() {
               </button>
               <button
                 className="px-4 py-2 rounded-lg bg-white border border-[#E5E7EB] text-[#111827] text-sm font-medium hover:bg-gray-50 transition-colors"
-                onClick={() => businessApi.getReconciliationReport(gstin).catch(() => {})}
+                onClick={openReconReport}
               >
                 View Reconciliation Report
               </button>
@@ -834,6 +854,86 @@ export default function Business() {
           </div>
         </div>
       </div>
+
+      {/* Reconciliation Report Modal */}
+      {reconModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+          <div className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-[#E5E7EB]">
+              <div>
+                <h2 className="text-base font-semibold text-[#111827]">Reconciliation Report</h2>
+                <p className="text-xs text-[#6B7280] mt-0.5">Invoice-level cross-check against GSTR-1, GSTR-3B &amp; e-Way bills</p>
+              </div>
+              <button
+                onClick={() => setReconModal(false)}
+                className="text-[#6B7280] hover:text-[#111827] transition-colors text-xl font-bold leading-none"
+              >
+                &times;
+              </button>
+            </div>
+            <div className="overflow-auto flex-1 px-6 py-4">
+              {reconLoading && (
+                <div className="flex items-center justify-center py-16 text-[#6B7280] text-sm">Loading report…</div>
+              )}
+              {reconError && (
+                <div className="flex items-center justify-center py-16 text-red-500 text-sm">{reconError}</div>
+              )}
+              {!reconLoading && !reconError && reconData.length === 0 && (
+                <div className="flex items-center justify-center py-16 text-[#6B7280] text-sm">No invoices found for this GSTIN.</div>
+              )}
+              {!reconLoading && !reconError && reconData.length > 0 && (
+                <table className="w-full text-sm border-collapse">
+                  <thead>
+                    <tr className="bg-[#F9FAFB] text-left">
+                      <th className="px-3 py-2 font-medium text-[#374151] border-b border-[#E5E7EB]">Invoice ID</th>
+                      <th className="px-3 py-2 font-medium text-[#374151] border-b border-[#E5E7EB]">Seller GSTIN</th>
+                      <th className="px-3 py-2 font-medium text-[#374151] border-b border-[#E5E7EB]">Buyer GSTIN</th>
+                      <th className="px-3 py-2 font-medium text-[#374151] border-b border-[#E5E7EB]">Risk Score</th>
+                      <th className="px-3 py-2 font-medium text-[#374151] border-b border-[#E5E7EB]">Status</th>
+                      <th className="px-3 py-2 font-medium text-[#374151] border-b border-[#E5E7EB]">Issues</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {reconData.map((row, i) => {
+                      const tone = row.status === 'HIGH' ? 'high' : row.status === 'MEDIUM' ? 'medium' : 'low';
+                      const c = riskPalette[tone];
+                      return (
+                        <tr key={i} className="border-b border-[#F3F4F6] hover:bg-[#F9FAFB] transition-colors">
+                          <td className="px-3 py-2 text-[#111827] font-mono text-xs">{row.invoice_id}</td>
+                          <td className="px-3 py-2 text-[#374151] font-mono text-xs">{row.seller}</td>
+                          <td className="px-3 py-2 text-[#374151] font-mono text-xs">{row.buyer}</td>
+                          <td className="px-3 py-2 font-semibold" style={{ color: c.solid }}>{row.riskScore}</td>
+                          <td className="px-3 py-2">
+                            <span className="inline-flex px-2 py-0.5 rounded-full text-xs font-medium" style={{ backgroundColor: c.soft, color: c.solid }}>
+                              {row.status}
+                            </span>
+                          </td>
+                          <td className="px-3 py-2 text-[#6B7280] text-xs">
+                            {row.issues && row.issues.length > 0
+                              ? row.issues.map((issue, j) => (
+                                  <span key={j} className="inline-flex mr-1 mb-0.5 px-1.5 py-0.5 rounded bg-[#FEF3C7] text-[#92400E] text-xs">{issue}</span>
+                                ))
+                              : <span className="text-[#22C55E]">No issues</span>}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              )}
+            </div>
+            <div className="px-6 py-3 border-t border-[#E5E7EB] flex justify-between items-center text-xs text-[#6B7280]">
+              <span>{reconData.length} invoice(s) checked</span>
+              <button
+                onClick={() => setReconModal(false)}
+                className="px-4 py-1.5 rounded-lg border border-[#E5E7EB] text-[#374151] hover:bg-gray-50 text-sm"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
