@@ -34,5 +34,6 @@ function getDriver() {
   return driver;
 }
 
-module.exports = driver;
-module.exports.getDriver = getDriver;
+module.exports = {
+  getDriver,
+};

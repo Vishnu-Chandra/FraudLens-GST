@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
+const axios = require('axios');
 
 const app = express();
 const connectDB = require("./config/mongodb");
@@ -16,6 +17,8 @@ const analyticsRoutes = require('./routes/analyticsRoutes');
 const { ensureDefaultOfficers } = require('./services/officerService');
 const { ensureInitialAnomalies } = require('./services/anomalySeedService');
 const { ensureInitialCases } = require('./services/caseSeedService');
+
+const ML_API_URL = process.env.ML_API_URL || 'http://localhost:6001';
 
 app.use(cors());
 app.use(express.json());
@@ -40,6 +43,17 @@ async function bootstrapInitialData() {
 }
 
 bootstrapInitialData();
+
+async function probeMlService() {
+  try {
+    const { data } = await axios.get(`${ML_API_URL}/health`, { timeout: 3500 });
+    console.log(`ML service connected (${ML_API_URL}) -> model_loaded=${Boolean(data?.model_loaded)}, model_type=${data?.model_type || 'unknown'}`);
+  } catch (error) {
+    console.warn(`ML service unavailable at ${ML_API_URL}. AI prediction endpoints may fail. (${error.message})`);
+  }
+}
+
+probeMlService();
 
 app.use("/api/upload", uploadRoutes);
 app.use("/api/analysis", analysisRoutes);

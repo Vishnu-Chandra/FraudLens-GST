@@ -18,6 +18,7 @@ __pycache__/
 *.pyo
 *.pyd
 .pytest_cache/
+.ipynb_checkpoints/
 .venv/
 venv/
 
@@ -35,11 +36,33 @@ Thumbs.db
 
 # Logs
 *.log
+npm-cache/
 
 # Project-generated/runtime
 backend/uploads/
+backend/uploads/*
+!backend/uploads/.gitkeep
 ml-model/*.pkl
 ml-model/*.joblib
+ml-model/.Python
+ml-model/.python-version
+ml-model/.venv/
+ml-model/__pycache__/
+ml-model/.mypy_cache/
+ml-model/.ruff_cache/
+ml-model/.coverage
+ml-model/htmlcov/
+
+# Local database / export files
+*.db
+*.sqlite
+*.sqlite3
+*.csv.tmp
+*.tmp
 
 # Optional large generated data
 dataset/
+
+# Editor state
+*.swp
+*.swo

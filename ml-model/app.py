@@ -14,7 +14,7 @@ except FileNotFoundError:
     print("⚠ WARNING: fraud_model.pkl not found. Please run train_model.py first.")
     model = None
 
-# Expected feature names (in order) - MUST match train_model_v2.py
+# Expected feature names (in order) - MUST match train_model.py
 EXPECTED_FEATURES = [
     # Financial features (6) - camelCase to match backend
     'invoiceCount',
@@ -31,12 +31,27 @@ EXPECTED_FEATURES = [
     'avgNeighborRisk',
 ]
 
+
+def to_probability(raw_score):
+    # Logistic mapping from anomaly score to 0..1 probability-like output.
+    return float(1.0 / (1.0 + np.exp(-raw_score * 3.0)))
+
+
+def extract_payload(json_payload):
+    if not isinstance(json_payload, dict):
+        return {}
+    nested = json_payload.get("features")
+    if isinstance(nested, dict):
+        return nested
+    return json_payload
+
 @app.route("/health", methods=["GET"])
 def health_check():
     """Health check endpoint"""
     return jsonify({
         "status": "healthy",
         "model_loaded": model is not None,
+        "model_type": "IsolationForest",
         "timestamp": datetime.now().isoformat(),
     })
 
@@ -55,17 +70,22 @@ def predict():
     
     Expected input format:
     {
-        "invoice_count": 48,
-        "total_taxable_value": 2400000,
-        "itc_ratio": 0.92,
-        "late_filings_count": 3,
-        "missing_eway_ratio": 0.34,
-        "gst_paid_vs_collected_ratio": 0.45,
-        "degree_centrality": 15,
-        "out_degree": 12,
-        "cycle_participation": 1,
-        "cluster_size": 4,
-        "avg_neighbor_risk": 0.7
+        "invoiceCount": 48,
+        "totalTaxableValue": 2400000,
+        "itcRatio": 0.92,
+        "lateFilingsCount": 3,
+        "missingEwayRatio": 0.34,
+        "gstPaidVsCollectedRatio": 0.45,
+        "degreeCentrality": 15,
+        "outDegree": 12,
+        "inDegree": 8,
+        "cycleParticipation": 1,
+        "avgNeighborRisk": 0.7
+    }
+
+    Backward compatible input also supported:
+    {
+        "features": { ...same keys as above... }
     }
     """
     
@@ -76,7 +96,7 @@ def predict():
         }), 500
     
     try:
-        data = request.json
+        data = extract_payload(request.get_json(silent=True))
         
         if not data:
             return jsonify({
@@ -106,9 +126,11 @@ def predict():
         # Create DataFrame with correct feature names
         features_df = pd.DataFrame([feature_values], columns=EXPECTED_FEATURES)
         
-        # Make prediction
-        prediction_proba = model.predict_proba(features_df)[0]
-        fraud_probability = float(prediction_proba[1])
+        # Isolation Forest prediction: -1 anomaly, 1 normal
+        pred = int(model.predict(features_df)[0])
+        raw_score = float(-model.decision_function(features_df)[0])
+        fraud_probability = to_probability(raw_score)
+        is_anomaly = pred == -1
         
         # Determine risk level
         if fraud_probability > 0.7:
@@ -122,22 +144,23 @@ def predict():
         confidence_factors = []
         
         # Check high-risk indicators
-        if data.get('itc_ratio', 0) > 0.8:
+        if data.get('itcRatio', 0) > 0.8:
             confidence_factors.append("High ITC ratio")
-        if data.get('cycle_participation', 0) == 1:
+        if data.get('cycleParticipation', 0) == 1:
             confidence_factors.append("Circular trading detected")
-        if data.get('missing_eway_ratio', 0) > 0.3:
+        if data.get('missingEwayRatio', 0) > 0.3:
             confidence_factors.append("High missing E-Way bills")
-        if data.get('avg_neighbor_risk', 0) > 0.6:
+        if data.get('avgNeighborRisk', 0) > 0.6:
             confidence_factors.append("Connected to high-risk partners")
-        if data.get('out_degree', 0) > 15:
+        if data.get('outDegree', 0) > 15:
             confidence_factors.append("Unusually high buyer count")
         
         response = {
             "fraud_probability": round(fraud_probability, 4),
             "risk_level": risk_level,
             "confidence_percentage": round(fraud_probability * 100, 2),
-            "prediction_class": "FRAUD" if fraud_probability > 0.5 else "NORMAL",
+            "prediction_class": "FRAUD" if is_anomaly else "NORMAL",
+            "raw_anomaly_score": round(raw_score, 6),
             "confidence_factors": confidence_factors,
             "features_used": {
                 "financial": len([f for f in EXPECTED_FEATURES[:6] if f in data]),
@@ -170,7 +193,8 @@ def predict_batch():
         }), 500
     
     try:
-        data = request.json
+        payload = request.get_json(silent=True) or {}
+        data = payload
         
         if not data or 'businesses' not in data:
             return jsonify({
@@ -190,7 +214,9 @@ def predict_batch():
             features_df = pd.DataFrame([feature_values], columns=EXPECTED_FEATURES)
             
             # Predict
-            fraud_probability = float(model.predict_proba(features_df)[0][1])
+            pred = int(model.predict(features_df)[0])
+            raw_score = float(-model.decision_function(features_df)[0])
+            fraud_probability = to_probability(raw_score)
             
             if fraud_probability > 0.7:
                 risk_level = "HIGH"
@@ -202,6 +228,7 @@ def predict_batch():
             results.append({
                 "gstin": business.get("gstin", "unknown"),
                 "fraud_probability": round(fraud_probability, 4),
+                "prediction_class": "FRAUD" if pred == -1 else "NORMAL",
                 "risk_level": risk_level,
             })
         

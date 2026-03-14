@@ -6,6 +6,8 @@ const api = axios.create({
   timeout: 10000,
 });
 
+const ENABLE_API_FALLBACK = String(import.meta.env.VITE_ENABLE_API_FALLBACK ?? 'true').toLowerCase() === 'true';
+
 // Original example data from spec
 const mockData = {
   riskSummary: {
@@ -191,7 +193,7 @@ async function fetchWithFallback(endpoint, mockKey) {
     const { data } = await api.get(endpoint);
     return unwrap(data);
   } catch (err) {
-    if (err.code === 'ERR_NETWORK' || err.response?.status >= 400) {
+    if (ENABLE_API_FALLBACK && (err.code === 'ERR_NETWORK' || err.response?.status >= 400)) {
       return mockData[mockKey];
     }
     throw err;

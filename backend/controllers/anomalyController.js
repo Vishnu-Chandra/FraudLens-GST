@@ -4,6 +4,8 @@ const Invoice = require('../models/Invoice');
 const GSTR3B = require('../models/GSTR3B');
 const EWayBill = require('../models/EWayBill');
 const { autoAssignUnassignedAnomalies, OFFICER_POOL } = require('../services/investigatorAssignmentService');
+const predictFraud = require('../services/aiFraudService');
+const { buildFeaturesForBusiness } = require('../services/mlFeatureService');
 
 const MONTH_TO_NUM = {
   jan: 1,
@@ -59,6 +61,67 @@ function withAnomalySource(anomaly) {
     ...anomaly,
     source: deriveAnomalySource(anomaly),
   };
+}
+
+function normalizePrediction(prediction = {}) {
+  const probability = Number(prediction.fraud_probability ?? prediction.fraudProbability ?? 0);
+  const bounded = Number.isFinite(probability) ? Math.max(0, Math.min(1, probability)) : 0;
+
+  const mappedRisk = String(prediction.risk_level || prediction.riskLevel || '').toUpperCase();
+  const riskLevel = ['LOW', 'MEDIUM', 'HIGH', 'CRITICAL'].includes(mappedRisk)
+    ? mappedRisk
+    : (bounded >= 0.85 ? 'CRITICAL' : bounded >= 0.7 ? 'HIGH' : bounded >= 0.4 ? 'MEDIUM' : 'LOW');
+
+  const severity = Math.max(1, Math.min(100, Math.round(bounded * 100)));
+
+  return {
+    fraudProbability: bounded,
+    riskLevel,
+    severity,
+    predictionClass: prediction.prediction_class || prediction.predictionClass || 'UNKNOWN',
+    confidenceFactors: Array.isArray(prediction.confidence_factors)
+      ? prediction.confidence_factors
+      : [],
+    rawAnomalyScore: Number(prediction.raw_anomaly_score ?? prediction.rawAnomalyScore ?? 0),
+  };
+}
+
+async function createOrUpdateAiAnomaly({ business, features, prediction }) {
+  const normalized = normalizePrediction(prediction);
+  const explanation = [
+    `ML model classified this business as ${normalized.predictionClass}.`,
+    ...normalized.confidenceFactors,
+  ];
+
+  const anomaly = await Anomaly.findOneAndUpdate(
+    { businessGstin: business.gstin, type: 'AI_PREDICTION' },
+    {
+      $set: {
+        source: 'AI_MODEL',
+        businessName: business.name,
+        riskLevel: normalized.riskLevel,
+        fraudProbability: normalized.fraudProbability,
+        severity: normalized.severity,
+        title: 'ML-based Fraud Risk Prediction',
+        description: `Isolation Forest model scored ${business.gstin} at ${(normalized.fraudProbability * 100).toFixed(2)}% fraud probability.`,
+        explanation,
+        evidenceData: {
+          modelType: 'IsolationForest',
+          predictionClass: normalized.predictionClass,
+          rawAnomalyScore: normalized.rawAnomalyScore,
+        },
+        features,
+        detectedAt: new Date(),
+      },
+      $setOnInsert: {
+        type: 'AI_PREDICTION',
+        status: 'NEW',
+      },
+    },
+    { new: true, upsert: true, runValidators: true }
+  ).lean();
+
+  return anomaly;
 }
 
 // GET /api/anomalies - Get all anomalies with optional filtering
@@ -245,21 +308,30 @@ exports.updateAnomaly = async (req, res) => {
 exports.detectForBusiness = async (req, res) => {
   try {
     const { gstin } = req.params;
-    
-    const business = await Business.findOne({ gstin });
-    if (!business) {
+
+    const featurePack = await buildFeaturesForBusiness(gstin);
+    if (!featurePack?.business) {
       return res.status(404).json({
         success: false,
         message: 'Business not found',
       });
     }
 
-    // This would normally call the ML service
-    // For now, return a placeholder
+    const prediction = await predictFraud(featurePack.features);
+    const anomaly = await createOrUpdateAiAnomaly({
+      business: featurePack.business,
+      features: featurePack.features,
+      prediction,
+    });
+
+    const assignmentResult = await autoAssignUnassignedAnomalies();
+
     return res.json({
       success: true,
-      message: 'Detection not yet implemented. Use batch detection instead.',
       gstin,
+      prediction,
+      anomaly: withAnomalySource(anomaly),
+      assignments: assignmentResult,
     });
   } catch (error) {
     console.error('Error detecting anomaly:', error);
@@ -282,15 +354,45 @@ exports.batchDetect = async (req, res) => {
       targetGstins = businesses.map(b => b.gstin);
     }
 
-    // This would normally call the ML service for each business.
-    // For now, we still auto-assign any newly detected/unassigned anomalies.
+    const results = [];
+    let processed = 0;
+
+    for (const gstin of targetGstins) {
+      try {
+        const featurePack = await buildFeaturesForBusiness(gstin);
+        if (!featurePack?.business) {
+          results.push({ gstin, success: false, message: 'Business not found' });
+          continue;
+        }
+
+        const prediction = await predictFraud(featurePack.features);
+        const anomaly = await createOrUpdateAiAnomaly({
+          business: featurePack.business,
+          features: featurePack.features,
+          prediction,
+        });
+
+        processed += 1;
+        results.push({
+          gstin,
+          success: true,
+          riskLevel: prediction.risk_level || null,
+          fraudProbability: prediction.fraud_probability ?? null,
+          anomalyId: anomaly?._id,
+        });
+      } catch (itemError) {
+        results.push({ gstin, success: false, message: itemError.message });
+      }
+    }
+
     const assignmentResult = await autoAssignUnassignedAnomalies();
 
     return res.json({
       success: true,
-      message: 'Batch detection would process these businesses',
+      message: 'Batch detection completed',
       count: targetGstins.length,
-      gstins: targetGstins,
+      processed,
+      results,
       assignments: assignmentResult,
     });
   } catch (error) {
@@ -424,69 +526,18 @@ exports.autoAssignAnomalies = async (req, res) => {
 exports.getFeatures = async (req, res) => {
   try {
     const { gstin } = req.params;
-    
-    const business = await Business.findOne({ gstin });
-    if (!business) {
+
+    const featurePack = await buildFeaturesForBusiness(gstin);
+    if (!featurePack?.business) {
       return res.status(404).json({
         success: false,
         message: 'Business not found',
       });
     }
 
-    const invoiceQuery = {
-      $or: [{ seller_gstin: gstin }, { buyer_gstin: gstin }],
-    };
-
-    const [invoiceCount, taxableAgg, invoices] = await Promise.all([
-      Invoice.countDocuments(invoiceQuery),
-      Invoice.aggregate([
-        { $match: invoiceQuery },
-        { $group: { _id: null, total: { $sum: '$amount' } } },
-      ]),
-      Invoice.find(invoiceQuery).select('invoice_id seller_gstin gst_amount').lean(),
-    ]);
-
-    const invoiceIds = invoices
-      .map((inv) => inv.invoice_id)
-      .filter((id) => typeof id === 'string' && id.trim() !== '');
-
-    const uniqueInvoiceIds = [...new Set(invoiceIds)];
-
-    const ewayCount = uniqueInvoiceIds.length
-      ? await EWayBill.countDocuments({ invoice_id: { $in: uniqueInvoiceIds } })
-      : 0;
-
-    const missingEwayRatio = uniqueInvoiceIds.length > 0
-      ? (uniqueInvoiceIds.length - ewayCount) / uniqueInvoiceIds.length
-      : 0;
-
-    const gstCollected = invoices.reduce((sum, inv) => {
-      if (inv.seller_gstin === gstin) {
-        return sum + Number(inv.gst_amount || 0);
-      }
-      return sum;
-    }, 0);
-
-    const taxPaidAgg = await GSTR3B.aggregate([
-      { $match: { gstin } },
-      { $group: { _id: null, totalTaxPaid: { $sum: '$tax_paid' } } },
-    ]);
-
-    const totalTaxPaid = Number(taxPaidAgg[0]?.totalTaxPaid || 0);
-    const gstPaidVsCollectedRatio = gstCollected > 0 ? totalTaxPaid / gstCollected : 0;
-
-    const features = {
-      invoiceCount,
-      totalTaxableValue: Number(taxableAgg[0]?.total || 0),
-      itcRatio: Number(business.itcRatio || 0),
-      lateFilingsCount: Number(business.lateFilingsCount || 0),
-      missingEwayRatio,
-      gstPaidVsCollectedRatio,
-    };
-
     return res.json({
       success: true,
-      data: features,
+      data: featurePack.features,
     });
   } catch (error) {
     console.error('Error fetching features:', error);
